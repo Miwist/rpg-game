@@ -15,8 +15,8 @@ const BattleTrain = ({ setTrain }) => {
   const [damageMonster, setDamageMonster] = useState(0);
   const [final, setFinal] = useState(false);
   const [gameover, setGameover] = useState(false);
-  let goldHero = JSON.parse(localStorage.getItem("gold")) + monsterList[0].gold;
-  let expHero = JSON.parse(localStorage.getItem("exp")) + monsterList[0].exp;
+  let goldHero = JSON.parse(localStorage.getItem("gold")) + monster.gold;
+  let expHero = JSON.parse(localStorage.getItem("exp")) + monster.exp;
   let damageHero = JSON.parse(localStorage.getItem("damage"));
   let healthHero = JSON.parse(localStorage.getItem("health"));
   let levelHero = JSON.parse(localStorage.getItem("level"));
