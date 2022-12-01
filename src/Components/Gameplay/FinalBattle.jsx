@@ -1,17 +1,20 @@
-import React from 'react'
+import React from "react";
 import cl from "./BattleTrain.module.scss";
-import { heroList, monsterList } from "../Info/Character";
+import { monsterList } from "../Info/Character";
 
-const FinalBattle = ({setTrain}) => {
+const FinalBattle = ({ monsterCount, setTrain }) => {
+  let monster = monsterList[monsterCount];
   return (
     <div className={cl.FinalBattle}>
-            <h2>Бой завершён</h2>
-            <h3>Ваша награда: </h3>
-            <p>Опыт: {monsterList[0].exp} exp</p>
-            <p>Золото: {monsterList[0].gold} gold</p>
-            <button type='button' onClick={() => setTrain(false)}>закрыть</button>
-        </div>
-  )
-}
+      <h2>Бой завершён</h2>
+      <h3>Ваша награда: </h3>
+      <p>Опыт: {monster.exp} exp</p>
+      <p>Золото: {monster.gold} gold</p>
+      <button type="button" onClick={() => setTrain(false)}>
+        закрыть
+      </button>
+    </div>
+  );
+};
 
-export default FinalBattle
+export default FinalBattle;

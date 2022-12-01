@@ -3,7 +3,8 @@ $bluegray: #2c6b7d;
 $darkblue: #042453;
 $fiol: #40374a;
 
-.characterModal {
+.characterModal,
+.aboutModal {
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -42,23 +43,43 @@ $fiol: #40374a;
       }
       margin-bottom: 15px;
     }
-    button {
-      padding: 10px;
-      width: 100px;
-      border-radius: 10px;
-      cursor: pointer;
-      background-color: $darkblue;
-      color: $myblue;
-    }
-    button:hover {
-      background-color: $myblue;
-      color: $darkblue;
-    }
+
     h3 {
       font-size: 22px;
       font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
         sans-serif;
-        margin-bottom: 5px;
+      margin-bottom: 5px;
     }
+  }
+  button {
+    padding: 10px;
+    width: 100px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: $darkblue;
+    color: $myblue;
+  }
+  button:hover {
+    background-color: $myblue;
+    color: $darkblue;
+  }
+}
+
+.aboutModal {
+  justify-content: flex-start;
+  h3 {
+    font-size: 28px;
+    margin: 10px;
+  }
+  p {
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    line-height: 2.2rem;
+  }
+
+  .text {
+    max-width: 400px;
+    margin-bottom: 20px;
   }
 }

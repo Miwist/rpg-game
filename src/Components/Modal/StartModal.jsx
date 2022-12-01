@@ -12,29 +12,38 @@ const StartModal = () => {
     setStartModal(false);
   }
 
-  function changeWarrior() {
-    localStorage.setItem("Hero", JSON.stringify("Warrior"));
-    localStorage.setItem("heroCount", JSON.stringify("1"));
+  function saveStorage() {
     localStorage.setItem("gold", JSON.stringify(0));
     localStorage.setItem("exp", JSON.stringify(0));
-    localStorage.setItem("level", JSON.stringify(1));
+    localStorage.setItem("level", JSON.stringify(10));
+  }
+
+  function changeWarrior() {
+    localStorage.setItem("Hero", JSON.stringify("Warrior"));
+    localStorage.setItem("heroCount", JSON.stringify(1));
+    localStorage.setItem("damage", JSON.stringify(1));
+    localStorage.setItem("armour", JSON.stringify(3));
+    localStorage.setItem("health", JSON.stringify(180));
+    saveStorage();
     closeModal();
   }
 
   function changeWizzard() {
     localStorage.setItem("Hero", JSON.stringify("Wizzard"));
     localStorage.setItem("heroCount", JSON.stringify(0));
-    localStorage.setItem("gold", JSON.stringify(0));
-    localStorage.setItem("exp", JSON.stringify(0));
-    localStorage.setItem("level", JSON.stringify(1));
+    localStorage.setItem("damage", JSON.stringify(3));
+    localStorage.setItem("armour", JSON.stringify(1));
+    localStorage.setItem("health", JSON.stringify(120));
+    saveStorage();
     closeModal();
   }
   function changeWarwoman() {
-    localStorage.setItem("heroCount", JSON.stringify("2"));
+    localStorage.setItem("heroCount", JSON.stringify(2));
     localStorage.setItem("Hero", JSON.stringify("Warwoman"));
-    localStorage.setItem("gold", JSON.stringify(0));
-    localStorage.setItem("exp", JSON.stringify(0));
-    localStorage.setItem("level", JSON.stringify(1));
+    localStorage.setItem("damage", JSON.stringify(2));
+    localStorage.setItem("armour", JSON.stringify(2));
+    localStorage.setItem("health", JSON.stringify(150));
+    saveStorage();
     closeModal();
   }
 

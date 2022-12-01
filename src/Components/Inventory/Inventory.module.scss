@@ -1,0 +1,66 @@
+$myblue: #64d0c4;
+$bluegray: #2c6b7d;
+$darkblue: #042453;
+$fiol: #40374a;
+
+.inventory {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 30px;
+  z-index: 4;
+  width: 600px;
+  height: 600px;
+  background-color: $bluegray;
+  border-radius: 10px;
+
+  button {
+    padding: 10px;
+    width: 100px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: $darkblue;
+    color: $myblue;
+  }
+  button:hover {
+    background-color: $myblue;
+    color: $darkblue;
+  }
+
+  h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  .gold_box {
+    color: gold;
+    font-size: 24px;
+    padding: 5px;
+    margin-bottom: 50px;
+  }
+  .gold_item {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+  }
+
+  .inventory_boxItem {
+    margin-bottom: 50px;
+    img {
+      width: 100px;
+      height: 100px;
+      border: 1px solid gray;
+      padding: 5px;
+      margin-bottom: 5px;
+      cursor: pointer;
+    }
+    img:hover {
+        border-color: #042453;
+    }
+    p {
+      font-size: 15px;
+      color: white;
+    }
+  }
+}

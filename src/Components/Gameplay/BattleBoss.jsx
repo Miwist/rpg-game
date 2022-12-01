@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import cl from "./BattleTrain.module.scss";
-import { heroList, monsterList } from "../Info/Character";
-import FinalBattle from "./FinalBattle";
+import { heroList, bossList } from "../Info/Character";
+import FinalBattle from "./BossFinal";
 import GameOver from "./GameOver";
 
-const BattleTrain = ({ setTrain }) => {
+const BattleBoss = ({ setBoss }) => {
   let heroCount = JSON.parse(localStorage.getItem("heroCount"));
-  const [monsterCount, setMonsterCount] = useState(0);
-  let monster = monsterList[monsterCount];
 
   const [attack, setAttack] = useState(false);
   const [attackMonster, setAttackMonster] = useState(false);
@@ -15,36 +13,20 @@ const BattleTrain = ({ setTrain }) => {
   const [damageMonster, setDamageMonster] = useState(0);
   const [final, setFinal] = useState(false);
   const [gameover, setGameover] = useState(false);
-  let goldHero = JSON.parse(localStorage.getItem("gold")) + monsterList[0].gold;
-  let expHero = JSON.parse(localStorage.getItem("exp")) + monsterList[0].exp;
-  let damageHero = JSON.parse(localStorage.getItem("damage"));
-  let healthHero = JSON.parse(localStorage.getItem("health"));
-  let levelHero = JSON.parse(localStorage.getItem("level"));
-  let heroHP = healthHero - damageMonster;
-  let monsterHP = monster.healthPoint - damage;
-  let width = 120;
 
-  useEffect(() => {
-    if (levelHero >= 5) {
-      setMonsterCount(1);
-    } else if (levelHero >= 10) {
-      setMonsterCount(2);
-    } else if (levelHero >= 15) {
-      setMonsterCount(3);
-    }
-  }, [levelHero]);
+  let heroHP = heroList[heroCount].healthPoint - damageMonster;
+  let monsterHP = bossList[0].healthPoint - damage;
+  let width = 120;
 
   function heroAttack() {
     setAttack(true);
-    setDamage(damage + damageHero);
+    setDamage(damage + heroList[heroCount].damage);
     End();
     function noAttack() {
       setAttack(false);
     }
     setTimeout(noAttack, 100);
   }
-
-  console.log(damage);
 
   function attackShow() {
     setAttackMonster(true);
@@ -58,7 +40,7 @@ const BattleTrain = ({ setTrain }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       attackShow();
-      setDamageMonster((damageMonster) => damageMonster + monster.damage);
+      setDamageMonster((damageMonster) => damageMonster + bossList[0].damage);
     }, 2000);
 
     return () => {
@@ -71,6 +53,9 @@ const BattleTrain = ({ setTrain }) => {
   } else if (monsterHP <= 0) {
     monsterHP = 0;
   }
+
+  let goldHero = JSON.parse(localStorage.getItem("gold")) + bossList[0].gold;
+  let expHero = JSON.parse(localStorage.getItem("exp")) + bossList[0].exp;
 
   function End() {
     if (heroHP <= 0) {
@@ -94,10 +79,10 @@ const BattleTrain = ({ setTrain }) => {
         <div className={cl.hero}>
           {attackMonster ? (
             <p style={{ color: "red", opacity: "1", marginBottom: "10px" }}>
-              -{monster.damage}
+              -{bossList[0].damage}
             </p>
           ) : (
-            <p style={{ opacity: "0" }}>-{monster.damage}</p>
+            <p style={{ opacity: "0" }}>-{bossList[0].damage}</p>
           )}
           <div className={cl.health}>
             <div
@@ -123,7 +108,7 @@ const BattleTrain = ({ setTrain }) => {
         <div className={cl.monster}>
           {attack ? (
             <p style={{ color: "white", opacity: "1", marginBottom: "10" }}>
-              -{damageHero}
+              -{heroList[heroCount].damage}
             </p>
           ) : (
             <p style={{ opacity: "0" }}>-{heroList[heroCount].damage}</p>
@@ -133,14 +118,14 @@ const BattleTrain = ({ setTrain }) => {
               className={cl.inProgress}
               style={{
                 background: "red",
-                width: width - damage / (monster.healthPoint / width),
+                width: width - damage / (bossList[0].healthPoint / width),
                 height: "100%",
               }}
             >
-              {monster.healthPoint - damage}
+              {bossList[0].healthPoint - damage}
             </div>
           </div>
-          <img src={monster.img} alt={heroList[heroCount].name} />
+          <img src={bossList[0].img} alt={heroList[heroCount].name} />
         </div>
       </div>
       <div className={cl.skills} onClick={heroAttack}>
@@ -150,10 +135,10 @@ const BattleTrain = ({ setTrain }) => {
         />
       </div>
       <h3>Атаковать</h3>
-      {final && <FinalBattle monsterCount={monsterCount} setTrain={setTrain} />}
-      {gameover && <GameOver setTrain={setTrain} />}
+      {final && <FinalBattle setTrain={setBoss} />}
+      {gameover && <GameOver setTrain={setBoss} />}
     </div>
   );
 };
 
-export default BattleTrain;
+export default BattleBoss;

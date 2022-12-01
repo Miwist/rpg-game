@@ -1,6 +1,5 @@
 import React from 'react'
 import cl from "./BattleTrain.module.scss";
-import { heroList, monsterList } from "../Info/Character";
 
 const GameOver = ({setTrain}) => {
   return (
