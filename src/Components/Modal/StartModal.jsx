@@ -15,7 +15,7 @@ const StartModal = () => {
   function saveStorage() {
     localStorage.setItem("gold", JSON.stringify(0));
     localStorage.setItem("exp", JSON.stringify(0));
-    localStorage.setItem("level", JSON.stringify(10));
+    localStorage.setItem("level", JSON.stringify(0));
   }
 
   function changeWarrior() {
