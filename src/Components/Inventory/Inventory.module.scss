@@ -56,11 +56,18 @@ $fiol: #40374a;
       cursor: pointer;
     }
     img:hover {
-        border-color: #042453;
+      border-color: #042453;
     }
     p {
       font-size: 15px;
       color: white;
     }
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .inventory {
+    max-width: 375px;
+    overflow: hidden;
   }
 }

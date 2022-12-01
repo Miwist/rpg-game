@@ -27,7 +27,7 @@ $fiol: #40374a;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-   
+
     .heroes_item {
       width: 100%;
       max-height: 200px;
@@ -43,15 +43,34 @@ $fiol: #40374a;
         height: 100px;
         margin-bottom: 5px;
       }
-      
     }
     h3 {
-        font-size: 18px;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 18px;
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
     }
     .heroes_item:hover {
-        color: #40374a;
-        background-color: $myblue;
+      color: #40374a;
+      background-color: $myblue;
+    }
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .StartModal {
+    max-width: 370px;
+    .heroes_box {
+      .heroes_item {
+        min-width: 110px;
+        margin: 5px;
+        h3 {
+          font-size: 14px;
+        }
+        img {
+          width: 60px;
+          height: 60px;
+        }
       }
+    }
   }
 }

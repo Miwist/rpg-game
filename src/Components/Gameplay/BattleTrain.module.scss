@@ -37,7 +37,6 @@ $fiol: #40374a;
       height: 20px;
       border: #40374a 2px solid;
       margin-bottom: 15px;
-
     }
     .heroIcon {
       .heroImg {
@@ -141,9 +140,14 @@ h3 {
 }
 
 @media screen and (max-width: 390px) {
-  .battlePlace {
-    .monster {
-      margin-left: 0;
+  .battleArea {
+    max-width:  375px;
+    overflow: hidden;
+    .battlePlace {
+    
+      .monster {
+        margin-left: 0;
+      }
     }
   }
 }

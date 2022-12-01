@@ -6,7 +6,10 @@ import GameOver from "./GameOver";
 
 const BattleBoss = ({ setBoss }) => {
   let heroCount = JSON.parse(localStorage.getItem("heroCount"));
+  let damageHero = JSON.parse(localStorage.getItem("damage"));
+  let healthHero = JSON.parse(localStorage.getItem("health"));
 
+  
   const [attack, setAttack] = useState(false);
   const [attackMonster, setAttackMonster] = useState(false);
   const [damage, setDamage] = useState(0);
@@ -14,13 +17,13 @@ const BattleBoss = ({ setBoss }) => {
   const [final, setFinal] = useState(false);
   const [gameover, setGameover] = useState(false);
 
-  let heroHP = heroList[heroCount].healthPoint - damageMonster;
+  let heroHP = healthHero - damageMonster;
   let monsterHP = bossList[0].healthPoint - damage;
   let width = 120;
 
   function heroAttack() {
     setAttack(true);
-    setDamage(damage + heroList[heroCount].damage);
+    setDamage(damage + damageHero );
     End();
     function noAttack() {
       setAttack(false);

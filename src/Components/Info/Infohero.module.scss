@@ -83,3 +83,19 @@ $fiol: #40374a;
     margin-bottom: 20px;
   }
 }
+
+@media screen and (max-width: 390px) {
+  .characterModal,
+  .aboutModal {
+    max-width: 350px;
+    .text {
+      p {
+        font-size: 18px;
+        line-height: 1.9rem;
+      
+      }
+      max-width: 350px;
+  
+    }
+  }
+}

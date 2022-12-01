@@ -8,9 +8,12 @@ body {
      font-family: 'Roboto', sans-serif;
      overflow: hidden;
 }
-// .container {
-//     max-width: 1140px;
-//     max-height: 100%;
-//     padding-left: 16px;
-//     padding-right: 16px;
-// }
+
+
+
+@media screen and (max-width: 390px) {
+    body {
+      
+        overflow-x: hidden;
+    }
+  }
