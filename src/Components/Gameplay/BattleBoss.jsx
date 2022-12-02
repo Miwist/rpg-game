@@ -9,7 +9,7 @@ const BattleBoss = ({ setBoss }) => {
   let damageHero = JSON.parse(localStorage.getItem("damage"));
   let healthHero = JSON.parse(localStorage.getItem("health"));
 
-  
+
   const [attack, setAttack] = useState(false);
   const [attackMonster, setAttackMonster] = useState(false);
   const [damage, setDamage] = useState(0);
@@ -23,7 +23,7 @@ const BattleBoss = ({ setBoss }) => {
 
   function heroAttack() {
     setAttack(true);
-    setDamage(damage + damageHero );
+    setDamage(damage + damageHero);
     End();
     function noAttack() {
       setAttack(false);
@@ -92,7 +92,7 @@ const BattleBoss = ({ setBoss }) => {
               className={cl.inProgress}
               style={{
                 background: "green",
-                width: width - damageMonster / (heroHP / width),
+                width: width - damageMonster / (healthHero / width),
                 height: "100%",
               }}
             >
@@ -109,9 +109,10 @@ const BattleBoss = ({ setBoss }) => {
         </div>
 
         <div className={cl.monster}>
+          <h3 style={{ color: "red" }}>{bossList[0].name}</h3>
           {attack ? (
             <p style={{ color: "white", opacity: "1", marginBottom: "10" }}>
-              -{heroList[heroCount].damage}
+              -{damageHero}
             </p>
           ) : (
             <p style={{ opacity: "0" }}>-{heroList[heroCount].damage}</p>

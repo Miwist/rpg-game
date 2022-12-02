@@ -10,12 +10,13 @@ const StartModal = () => {
 
   function closeModal() {
     setStartModal(false);
+    window.location.reload();
   }
 
   function saveStorage() {
     localStorage.setItem("gold", JSON.stringify(0));
     localStorage.setItem("exp", JSON.stringify(0));
-    localStorage.setItem("level", JSON.stringify(0));
+    localStorage.setItem("level", JSON.stringify(1));
   }
 
   function changeWarrior() {

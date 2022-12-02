@@ -7,39 +7,41 @@ import cl from "./Menu.module.scss";
 import BattleBoss from "../Gameplay/BattleBoss";
 import AboutGame from "../Info/AboutGame";
 import Inventory from "../Inventory/Inventory";
+import ChangeLevel from "../Modal/ChangeLevel";
+import Score from "../Score/Score";
 
 const Menu = () => {
   const [infocharacter, setInfocharacter] = useState(false);
   const [train, setTrain] = useState(false);
   const [boss, setBoss] = useState(false);
   const [about, setAbout] = useState(false);
+  const [openScore, setOpenScore] = useState(false);
   const [openInventory, setOpenInventory] = useState(false);
-
-  let goldHero = JSON.parse(localStorage.getItem("gold"));
+  const [change, setChange] = useState(false);
+  let heroCount = JSON.parse(localStorage.getItem("heroCount"));
+  let damageHero = JSON.parse(localStorage.getItem("damage"));
+  let healthHero = JSON.parse(localStorage.getItem("health"));
   let expHero = JSON.parse(localStorage.getItem("exp"));
   let lvlHero = JSON.parse(localStorage.getItem("level"));
-  let damageHero = JSON.parse(localStorage.getItem("damage"));
-  let armourHero = JSON.parse(localStorage.getItem("armour"));
-  let healthHero = JSON.parse(localStorage.getItem("health"));
-
-  if (expHero >= (99 * lvlHero) / 1.5) {
-    localStorage.setItem("exp", JSON.stringify(0));
-    localStorage.setItem("level", JSON.stringify(lvlHero + 1));
-    localStorage.setItem("damage", JSON.stringify(damageHero + 1));
-    localStorage.setItem("health", JSON.stringify(healthHero + 10));
-  }
 
   function changeHero() {
     localStorage.clear();
     window.location.reload();
   }
 
+  if (expHero >= (99 * lvlHero) / 1.5 && expHero !== 0) {
+    localStorage.setItem("level", JSON.stringify(lvlHero + 1));
+    localStorage.setItem("damage", JSON.stringify(damageHero + 1));
+    localStorage.setItem("health", JSON.stringify(healthHero + 10));
+    localStorage.setItem("exp", JSON.stringify(0));
+  }
+
   return (
     <div className={cl.Menu}>
       <div className={cl.Menu_box}>
-        <span onClick={() => setTrain(true)}>Начать тренировку</span>
+        <span onClick={() => setChange(true)}>Начать тренировку</span>
         <span onClick={() => setBoss(true)}>Сразиться с боссом</span>
-        <span>Магазин</span>
+        <span onClick={() => setOpenScore(true)}>Магазин</span>
         <span onClick={() => setInfocharacter(true)}>Персонаж</span>
         <span onClick={() => setOpenInventory(true)}>Инвентарь</span>
         <span onClick={() => setAbout(true)}>Об игре</span>
@@ -53,6 +55,8 @@ const Menu = () => {
       {boss && <BattleBoss setBoss={setBoss} />}
       {about && <AboutGame setAbout={setAbout} />}
       {openInventory && <Inventory setOpenInventory={setOpenInventory} />}
+      {change && <ChangeLevel setTrain={setTrain} setChange={setChange} />}
+      {openScore && <Score setOpenScore={setOpenScore} />}
     </div>
   );
 };

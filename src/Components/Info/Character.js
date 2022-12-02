@@ -9,6 +9,8 @@ import spear from "../../img/spear.png";
 import dragon from "../../img/dragon.png";
 import skeleton from "../../img/skeleton.png";
 import Mutant from "../../img/mutant.png";
+import minotaur from "../../img/minotaur.png";
+import devil from "../../img/devil.png";
 
 export let heroList = [
   {
@@ -23,6 +25,7 @@ export let heroList = [
     manaPoint: 180,
     luck: 1,
     weapon: fireball,
+    weaponName: "fireball",
   },
   {
     name: "Воин",
@@ -36,6 +39,7 @@ export let heroList = [
     manaPoint: 80,
     luck: 1,
     weapon: sword,
+    weaponName: "sword",
   },
 
   {
@@ -49,13 +53,14 @@ export let heroList = [
     healthPoint: 150,
     manaPoint: 60,
     luck: 1,
-    weapon: spear
+    weapon: spear,
+    weaponName: "spear",
   },
 ];
 
 export let monsterList = [
   {
-    name: "Boar",
+    name: "Вепрь",
     img: boar,
     damage: 8,
     armour: 1,
@@ -65,9 +70,9 @@ export let monsterList = [
     gold: 50,
   },
   {
-    name: "Troll",
+    name: "Тролль",
     img: troll,
-    damage: 15,
+    damage: 25,
     armour: 3,
     level: 5,
     healthPoint: 150,
@@ -75,9 +80,9 @@ export let monsterList = [
     gold: 100,
   },
   {
-    name: "Skeleton",
+    name: "Скелет",
     img: skeleton,
-    damage: 25,
+    damage: 45,
     armour: 5,
     level: 10,
     healthPoint: 250,
@@ -85,25 +90,45 @@ export let monsterList = [
     gold: 200,
   },
   {
-    name: "Mutant",
+    name: "Мутант",
     img: Mutant,
-    damage: 45,
+    damage: 80,
     armour: 8,
     level: 15,
     healthPoint: 450,
-    exp: 200,
-    gold: 200,
+    exp: 300,
+    gold: 300,
+  },
+  {
+    name: "Минотавр",
+    img: minotaur,
+    damage: 120,
+    armour: 8,
+    level: 20,
+    healthPoint: 650,
+    exp: 400,
+    gold: 400,
+  },
+  {
+    name: "Люци",
+    img: devil,
+    damage: 150,
+    armour: 8,
+    level: 30,
+    healthPoint: 750,
+    exp: 600,
+    gold: 600,
   },
 ];
 export let bossList = [
   {
-    name: "Dragon",
+    name: "Дракон",
     img: dragon,
-    damage: 100,
+    damage: 300,
     armour: 20,
-    level: 30,
-    healthPoint: 1500,
-    exp: 1500,
-    gold: 1000,
+    level: 50,
+    healthPoint: 2500,
+    exp: 5500,
+    gold: 5000,
   },
 ];

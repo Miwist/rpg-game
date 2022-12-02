@@ -1,9 +1,12 @@
 import React from "react";
 import gold from "../../img/gold.png";
 import cl from "./Inventory.module.scss";
-import sword from "../../img/sword.png";
+import { heroList } from "../Info/Character";
+
 
 const Inventory = ({ setOpenInventory }) => {
+  let goldHero = JSON.parse(localStorage.getItem("gold"));
+  let heroCount = JSON.parse(localStorage.getItem("heroCount"));
   return (
     <div className={cl.inventory}>
       <div className={cl.title}>
@@ -11,14 +14,13 @@ const Inventory = ({ setOpenInventory }) => {
       </div>
       <div className={cl.description}>
         <div className={cl.gold_box}>
-          {" "}
-          <img src={gold} alt="gold" className={cl.gold_item} /> 450
+          <img src={gold} alt="gold" className={cl.gold_item} /> {goldHero}
         </div>
       </div>
       <div className={cl.inventory_box}>
         <div className={cl.inventory_boxItem}>
-          <img src={sword} alt="sword" />
-          <p>Обычный меч</p>
+          <img src={heroList[heroCount].weapon} alt={heroList[heroCount].weaponName}/>
+          <h4>{heroList[heroCount].weaponName}</h4>
         </div>
       </div>
 

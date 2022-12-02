@@ -3,7 +3,7 @@ $bluegray: #2c6b7d;
 $darkblue: #042453;
 $fiol: #40374a;
 
-.inventory {
+.score {
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -45,7 +45,7 @@ $fiol: #40374a;
     margin-right: 5px;
   }
 
-  .inventory_boxItem {
+  .score_boxItem {
     margin-bottom: 50px;
     text-align: center;
     img {
