@@ -9,7 +9,7 @@ const Score = ({ setOpenScore }) => {
   return (
     <div className={cl.score}>
       <div className={cl.title}>
-        <h3>Инвентарь</h3>
+        <h3>Магазин</h3>
       </div>
       <div className={cl.description}>
         <div className={cl.gold_box}>
@@ -17,10 +17,14 @@ const Score = ({ setOpenScore }) => {
         </div>
       </div>
       <div className={cl.score_box}>
-        <div className={cl.score_boxItem}>
-        
-     
-        </div>
+        {itemsAll.map(({ name, description, price, img }) => (
+          <div className={cl.score_boxItem}>
+            <h4>{name}</h4>
+            <img src={img} alt={name} />
+            <p>{description}</p>
+            <p>Цена: {price}</p>
+          </div>
+        ))}
       </div>
 
       <button type="button" onClick={() => setOpenScore(false)}>
