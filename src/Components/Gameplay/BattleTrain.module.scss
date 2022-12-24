@@ -48,6 +48,10 @@ $fiol: #40374a;
 
   .monster {
     margin-left: 100px;
+    transition: transform;
+    transition-property: translate;
+    transition-timing-function: ease-in-out;
+    transition-duration: 200ms;
     .heroDamage {
       opacity: 0;
       color: white;

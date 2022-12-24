@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
-import cl from "./StartModal.module.scss";
+import React from "react";
+import cl from "../Modal/StartModal.module.scss";
 
 const ChangeLevel = ({ setTrain, setChange }) => {
-  const [selectLevel, setSelectLevel] = useState(0);
 
   function level1() {
     localStorage.setItem("monsterCount", 0);

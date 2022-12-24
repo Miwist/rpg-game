@@ -20,7 +20,7 @@ export let heroList = [
     level: 1,
     damage: 3,
     armour: 1,
-    gold: 0,
+    gold: 111110,
     healthPoint: 120,
     manaPoint: 180,
     luck: 1,
@@ -132,3 +132,4 @@ export let bossList = [
     gold: 5000,
   },
 ];
+

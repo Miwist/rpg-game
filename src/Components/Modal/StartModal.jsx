@@ -3,52 +3,35 @@ import cl from "./StartModal.module.scss";
 import wand from "../../img/wand.png";
 import swords from "../../img/swords.png";
 import spears from "../../img/spears.png";
+import { heroList } from "../Info/Character";
 
 const StartModal = () => {
   const [startmodal, setStartModal] = useState(true);
-  let changeLater = JSON.parse(localStorage.getItem("Hero"));
+  const [heroId, setHeroId] = useState(0);
+  let Hero = JSON.parse(localStorage.getItem("Hero"));
 
   function closeModal() {
+    localStorage.setItem("Hero", JSON.stringify(heroList[heroId]));
+    localStorage.setItem("inventory", JSON.stringify([]));
     setStartModal(false);
     window.location.reload();
   }
-
-  function saveStorage() {
-    localStorage.setItem("gold", JSON.stringify(0));
-    localStorage.setItem("exp", JSON.stringify(0));
-    localStorage.setItem("level", JSON.stringify(1));
-  }
-
   function changeWarrior() {
-    localStorage.setItem("Hero", JSON.stringify("Warrior"));
-    localStorage.setItem("heroCount", JSON.stringify(1));
-    localStorage.setItem("damage", JSON.stringify(1));
-    localStorage.setItem("armour", JSON.stringify(3));
-    localStorage.setItem("health", JSON.stringify(180));
-    saveStorage();
+    setHeroId(1);
     closeModal();
   }
 
   function changeWizzard() {
-    localStorage.setItem("Hero", JSON.stringify("Wizzard"));
-    localStorage.setItem("heroCount", JSON.stringify(0));
-    localStorage.setItem("damage", JSON.stringify(3));
-    localStorage.setItem("armour", JSON.stringify(1));
-    localStorage.setItem("health", JSON.stringify(120));
-    saveStorage();
+    setHeroId(0);
     closeModal();
   }
+  
   function changeWarwoman() {
-    localStorage.setItem("heroCount", JSON.stringify(2));
-    localStorage.setItem("Hero", JSON.stringify("Warwoman"));
-    localStorage.setItem("damage", JSON.stringify(2));
-    localStorage.setItem("armour", JSON.stringify(2));
-    localStorage.setItem("health", JSON.stringify(150));
-    saveStorage();
+    setHeroId(2);
     closeModal();
   }
 
-  if (startmodal === true && changeLater === null)
+  if (startmodal === true && Hero === null)
     return (
       <div className={cl.StartModal}>
         <div className={cl.title}>

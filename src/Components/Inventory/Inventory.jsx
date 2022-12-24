@@ -3,10 +3,10 @@ import gold from "../../img/gold.png";
 import cl from "./Inventory.module.scss";
 import { heroList } from "../Info/Character";
 
-
 const Inventory = ({ setOpenInventory }) => {
-  let goldHero = JSON.parse(localStorage.getItem("gold"));
-  let heroCount = JSON.parse(localStorage.getItem("heroCount"));
+  let hero = JSON.parse(localStorage.getItem("Hero"));
+  let inventory = JSON.parse(localStorage.getItem("inventory"));
+
   return (
     <div className={cl.inventory}>
       <div className={cl.title}>
@@ -14,14 +14,21 @@ const Inventory = ({ setOpenInventory }) => {
       </div>
       <div className={cl.description}>
         <div className={cl.gold_box}>
-          <img src={gold} alt="gold" className={cl.gold_item} /> {goldHero}
+          <img src={gold} alt="gold" className={cl.gold_item} /> {hero.gold}
         </div>
       </div>
       <div className={cl.inventory_box}>
         <div className={cl.inventory_boxItem}>
-          <img src={heroList[heroCount].weapon} alt={heroList[heroCount].weaponName}/>
-          <h4>{heroList[heroCount].weaponName}</h4>
+          <img src={hero.weapon} alt={hero.weaponName} />
+          <h4>{hero.weaponName}</h4>
         </div>
+
+        {inventory.map((item) => (
+          <div className={cl.inventory_boxItem}>
+            <img src={item.img} alt={item.name} />
+            <h4>{item.name}</h4>
+          </div>
+        ))}
       </div>
 
       <button type="button" onClick={() => setOpenInventory(false)}>
