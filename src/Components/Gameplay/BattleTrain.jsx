@@ -53,13 +53,20 @@ const BattleTrain = ({ setTrain }) => {
     };
   }, []);
 
+  useEffect(() => {
+    End();
+  }, [monsterHP]);
+
+  useEffect(() => {
+    End();
+  }, [heroHP]);
+
   function End() {
     if (heroHP <= 0) {
       setGameover(true);
       heroHP = 0;
     } else if (monsterHP <= 0) {
       setFinal(true);
-      monsterHP = 0;
       monsterHP = 0;
       hero.gold = hero.gold + monster.gold;
       hero.exp = hero.exp + monster.exp;

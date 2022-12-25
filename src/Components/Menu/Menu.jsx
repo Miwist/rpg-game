@@ -19,11 +19,12 @@ const Menu = () => {
   const [openInventory, setOpenInventory] = useState(false);
   const [change, setChange] = useState(false);
   const [openBox, setOpenBox] = useState(false);
-
   function changeHero() {
     localStorage.clear();
     window.location.reload();
   }
+
+
 
   return (
     <div className={cl.Menu}>

@@ -15,6 +15,7 @@ const BattleBoss = ({ setBoss }) => {
   const [damageMonster, setDamageMonster] = useState(0);
   const [final, setFinal] = useState(false);
   const [gameover, setGameover] = useState(false);
+  const [critical, setCritical] = useState(0);
 
   let heroHP = hero.healthPoint - damageMonster;
   let monsterHP = bossList[0].healthPoint - damage;
@@ -30,21 +31,38 @@ const BattleBoss = ({ setBoss }) => {
     setTimeout(noAttack, 100);
   }
 
+  useEffect(() => {
+    End();
+  }, [monsterHP]);
+
+  useEffect(() => {
+    End();
+  }, [heroHP]);
+
   function attackShow() {
     setAttackMonster(true);
+
+    let random = Math.floor(Math.random() * 11);
+
+    if (random > 5) {
+      setCritical(true);
+      setDamageMonster(100 * random);
+    }
+
     setTimeout(noAttack, 500);
     setMove(move - 50);
     End();
     function noAttack() {
       setMove(0);
       setAttackMonster(false);
+      setCritical(false);
     }
   }
 
   useEffect(() => {
     const interval = setInterval(() => {
       attackShow();
-      setDamageMonster((damageMonster) => damageMonster + bossList[0].damage);
+      setDamageMonster(damageMonster + bossList[0].damage);
     }, 2000);
 
     return () => {
@@ -52,12 +70,12 @@ const BattleBoss = ({ setBoss }) => {
     };
   }, []);
 
-  if (heroHP <= 0) {
-    heroHP = 0;
-  } else if (monsterHP <= 0) {
-    monsterHP = 0;
-    hero.gold = hero.gold + bossList[0].gold;
-    hero.exp = hero.exp + bossList[0].exp;
+  if (hero.exp >= (99 * hero.level) / 2 && hero.exp !== 0 && hero !== null) {
+    hero.level = hero.level + Math.round(hero.exp / (99 * hero.level) / 2);
+    hero.damage = hero.damage + Math.round(hero.exp / (99 * hero.level) / 2);
+    hero.healthPoint =
+      hero.healthPoint + 30 * Math.round(hero.exp / (99 * hero.level) / 2);
+    hero.exp = 0;
     localStorage.setItem("Hero", JSON.stringify(hero));
   }
 
@@ -65,8 +83,11 @@ const BattleBoss = ({ setBoss }) => {
     if (heroHP <= 0) {
       setGameover(true);
     } else if (monsterHP <= 0) {
-      setFinal(true);
       monsterHP = 0;
+      hero.gold = hero.gold + bossList[0].gold;
+      hero.exp = hero.exp + bossList[0].exp;
+      localStorage.setItem("Hero", JSON.stringify(hero));
+      setFinal(true);
     }
   }
 
@@ -75,7 +96,12 @@ const BattleBoss = ({ setBoss }) => {
       {attackMonster ? (
         <p style={{ color: "red", opacity: "1" }}>Вас бьют!</p>
       ) : (
-        <p style={{ opacity: 0 }}>Вас бьют!</p>
+        <p style={{ opacity: "0" }}>Вас бьют!</p>
+      )}
+      {critical && (
+        <p style={{ color: "red" }}>
+          Нанесён критический урон: {damageMonster}
+        </p>
       )}
       <div className={cl.battlePlace} onClick={heroAttack}>
         <div className={cl.hero}>

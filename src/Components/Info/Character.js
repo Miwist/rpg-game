@@ -11,6 +11,8 @@ import skeleton from "../../img/skeleton.png";
 import Mutant from "../../img/mutant.png";
 import minotaur from "../../img/minotaur.png";
 import devil from "../../img/devil.png";
+import cthulchu from "../../img/cthulhu.png";
+import monstrik from "../../img/monster.png";
 
 export let heroList = [
   {
@@ -18,7 +20,7 @@ export let heroList = [
     img: magic,
     exp: 0,
     level: 1,
-    damage: 3,
+    damage: 1,
     armour: 1,
     gold: 0,
     healthPoint: 120,
@@ -63,7 +65,7 @@ export let monsterList = [
     name: "Вепрь",
     img: boar,
     damage: 8,
-    armour: 1,
+    armour: 12,
     level: 1,
     healthPoint: 100,
     exp: 50,
@@ -102,34 +104,53 @@ export let monsterList = [
   {
     name: "Минотавр",
     img: minotaur,
-    damage: 120,
+    damage: 220,
     armour: 8,
     level: 20,
-    healthPoint: 650,
-    exp: 400,
-    gold: 400,
+    healthPoint: 850,
+    exp: 600,
+    gold: 600,
   },
   {
     name: "Люци",
     img: devil,
-    damage: 150,
+    damage: 250,
     armour: 8,
     level: 30,
-    healthPoint: 750,
-    exp: 600,
-    gold: 600,
+    healthPoint: 1250,
+    exp: 1600,
+    gold: 1000,
+  },
+  {
+    name: "Ктулху",
+    img: cthulchu,
+    damage: 300,
+    armour: 8,
+    level: 35,
+    healthPoint: 2250,
+    exp: 4600,
+    gold: 3000,
+  },
+  {
+    name: "Монстрик",
+    img: monstrik,
+    damage: 350,
+    armour: 8,
+    level: 40,
+    healthPoint: 11250,
+    exp: 5600,
+    gold: 5000,
   },
 ];
 export let bossList = [
   {
     name: "Дракон",
     img: dragon,
-    damage: 300,
+    damage: 550,
     armour: 20,
     level: 50,
-    healthPoint: 2500,
-    exp: 5500,
-    gold: 5000,
+    healthPoint: 12500,
+    exp: 50000,
+    gold: 50000,
   },
 ];
-

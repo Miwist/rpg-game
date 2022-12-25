@@ -32,6 +32,14 @@ const ChangeLevel = ({ setTrain, setChange }) => {
     localStorage.setItem("monsterCount", 5);
     start();
   }
+  function level35() {
+    localStorage.setItem("monsterCount", 6);
+    start();
+  }
+  function level40() {
+    localStorage.setItem("monsterCount", 7);
+    start();
+  }
 
   function start() {
     setTrain(true);
@@ -47,6 +55,8 @@ const ChangeLevel = ({ setTrain, setChange }) => {
       <span onClick={level15}>15 уровень</span>
       <span onClick={level20}>20 уровень</span>
       <span onClick={level30}>30 уровень</span>
+      <span onClick={level35}>35 уровень</span>
+      <span onClick={level40}>40 уровень</span>
       <span onClick={() => setChange(false)}>Назад</span>
     </div>
   );

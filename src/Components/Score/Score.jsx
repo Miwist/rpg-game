@@ -24,17 +24,25 @@ const Score = ({ setOpenScore }) => {
   function buyItem() {
     if (hero.gold >= score[index].price) {
       hero.gold = hero.gold - score[index].price;
-    
+
       inventory.push(score[index]);
-    
+      if (itemId === 0) {
+        hero.healthPoint = hero.healthPoint + 250;
+      }
       if (itemId === 1) {
-        hero.healthPoint = hero.healthPoint + 600;
+        hero.healthPoint = hero.healthPoint + 1600;
       }
       if (itemId === 2) {
         hero.spell = "firewall";
       }
       if (itemId === 3) {
         hero.damage = hero.damage * 2;
+      }
+
+      if (itemId === 4) {
+        hero.damage = hero.damage * 15;
+        hero.level = hero.level * 15;
+        hero.gold = hero.gold * 10;
       }
 
       localStorage.setItem("inventory", JSON.stringify(inventory));

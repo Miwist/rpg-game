@@ -27,26 +27,26 @@ const Box = ({ setOpenBox }) => {
   function bounty() {
     if (hero.gold >= 500) {
       hero.gold = hero.gold - 500;
-      let random = Math.floor(Math.random() * 11);
+      let random = Math.floor(Math.random() * 100);
 
       setTimeout(setOpen(true), 3000);
-        console.log(random)
-      if (random === 1) {
+
+      if (random >= 10 && random <= 15) {
         hero.gold = hero.gold + 500;
         setWin("Поздравляем, вы выиграли 500 монет!");
-      } else if (random === 10) {
-        hero.damage = hero.damage * 2;
+      } else if (random >= 15 && random <= 18) {
+        hero.damage = hero.damage * 1.5;
         setWin("Поздравляем, вы выиграли двойной урон!");
-      } else if (random === 4) {
+      } else if (random >= 25 && random <= 31) {
         hero.exp = hero.exp + 500;
         setWin("Поздравляем, Вы выиграли 500 exp!");
-      } else if (random === 6) {
+      } else if (random >= 41 && random <= 49) {
         hero.exp = hero.exp + 100;
         setWin("Поздравляем, вы выиграли 100 exp!");
-      } else if (random === 8) {
+      } else if (random >= 51 && random <= 54) {
         hero.gold = hero.gold + 1500;
         setWin("Поздравляем, вы выиграли 1500 монет!");
-      } else if (random === 9) {
+      } else if (random >= 80 && random <= 83) {
         hero.exp = hero.exp + 1000;
         hero.gold = hero.gold + 1500;
         setWin("Поздравляем, вы выиграли 1000 exp и 1500 монет!");
