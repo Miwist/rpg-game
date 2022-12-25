@@ -10,6 +10,7 @@ const Infohero = ({ setInfocharacter }) => {
         <img src={hero.img} alt={hero.name} />
         <div className={cl.description}>
           <h3>Характеристики:</h3>
+          <p>Имя: {hero.userName}</p>
           <p>Уровень: {hero.level}</p>
           <p>Опыт: {hero.exp} exp</p>
           <p>Урон: {hero.damage}</p>

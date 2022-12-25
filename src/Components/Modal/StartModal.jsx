@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import cl from "./StartModal.module.scss";
 import wand from "../../img/wand.png";
 import swords from "../../img/swords.png";
@@ -7,27 +7,61 @@ import { heroList } from "../Info/Character";
 
 const StartModal = () => {
   const [startmodal, setStartModal] = useState(true);
+  const [userName, setUsername] = useState("");
   let Hero = JSON.parse(localStorage.getItem("Hero"));
 
+  let nameRef = useRef();
+
+  function changeName() {
+    let name = nameRef.current.value;
+    if (name.length >= 3) {
+      setUsername(name);
+      nameRef.current.value = " ";
+    } else {
+      alert("В имени меньше 3 символов");
+    }
+  }
+
   function closeModal() {
- 
-    localStorage.setItem("inventory", JSON.stringify([]));
-    setStartModal(false);
-    window.location.reload();
+    if (userName.length >= 3 && userName !== null) {
+      localStorage.setItem("inventory", JSON.stringify([]));
+      setStartModal(false);
+      window.location.reload();
+    } else {
+      alert("Введите корректное имя");
+    }
   }
   function Warrior() {
-    localStorage.setItem("Hero", JSON.stringify(heroList[1]));
-    closeModal();
+    if (userName.length >= 3 && userName !== null) {
+      heroList[1].userName = userName;
+      localStorage.setItem("Hero", JSON.stringify(heroList[1]));
+
+      closeModal();
+    } else {
+      alert("Введите корректное имя");
+    }
   }
 
   function Wizzard() {
-    localStorage.setItem("Hero", JSON.stringify(heroList[0]));
-    closeModal();
+    if (userName.length >= 3 && userName !== null) {
+      heroList[0].userName = userName;
+      localStorage.setItem("Hero", JSON.stringify(heroList[0]));
+
+      closeModal();
+    } else {
+      alert("Введите корректное имя");
+    }
   }
-  
+
   function Warwoman() {
-    localStorage.setItem("Hero", JSON.stringify(heroList[2]));
-    closeModal();
+    if (userName.length >= 3 && userName !== null) {
+      heroList[2].userName = userName;
+      localStorage.setItem("Hero", JSON.stringify(heroList[2]));
+
+      closeModal();
+    } else {
+      alert("Введите корректное имя");
+    }
   }
 
   if (startmodal === true && Hero === null)
@@ -35,6 +69,10 @@ const StartModal = () => {
       <div className={cl.StartModal}>
         <div className={cl.title}>
           <h2>Выберите класс</h2>
+          <input type="text" placeholder="Введите своё имя..." ref={nameRef} />
+          <button type="button" onClick={changeName}>
+            ок
+          </button>
         </div>
         <div className={cl.heroes_box}>
           <div className={cl.heroes_item} onClick={Wizzard}>

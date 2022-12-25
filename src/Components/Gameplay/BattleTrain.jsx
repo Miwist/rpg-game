@@ -83,7 +83,8 @@ const BattleTrain = ({ setTrain }) => {
       )}
       <div className={cl.battlePlace} onClick={heroAttack}>
         <div className={cl.hero}>
-          <h3 style={{ marginBottom: "5px" }}>{hero.level} lvl</h3>
+          <h3 style={{color: "gray"}}>{hero.userName}</h3>
+          <h3 >{hero.level} lvl</h3>
           {attackMonster ? (
             <p style={{ color: "red", opacity: "1", marginBottom: "10px" }}>
               -{monster.damage}
