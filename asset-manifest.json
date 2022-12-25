@@ -1,12 +1,14 @@
 {
   "files": {
-    "main.css": "/rpg-game/static/css/main.c1e87ddc.css",
-    "main.js": "/rpg-game/static/js/main.2a62897c.js",
+    "main.css": "/rpg-game/static/css/main.c692a555.css",
+    "main.js": "/rpg-game/static/js/main.a9858dda.js",
     "static/media/openChest.jpg": "/rpg-game/static/media/openChest.d98bc155aed859896630.jpg",
     "static/media/castle.jpg": "/rpg-game/static/media/castle.4d81eed848299b15b163.jpg",
     "static/media/dragon.png": "/rpg-game/static/media/dragon.9f5fb76abd9a102d887f.png",
     "static/media/crystallball.png": "/rpg-game/static/media/crystallball.0780f2923ab901161a4e.png",
+    "static/media/cthulhu.png": "/rpg-game/static/media/cthulhu.1aa4850c595e4a004340.png",
     "static/media/armour.png": "/rpg-game/static/media/armour.9323559c494c7f795830.png",
+    "static/media/monster.png": "/rpg-game/static/media/monster.5f8218850e902988322c.png",
     "static/media/spellbook.png": "/rpg-game/static/media/spellbook.b88a32f8d9a989af9dd7.png",
     "static/media/swords.png": "/rpg-game/static/media/swords.2e147197a21065ce8830.png",
     "static/media/mutant.png": "/rpg-game/static/media/mutant.ec21ac56c612f6765e2c.png",
@@ -21,17 +23,18 @@
     "static/media/minotaur.png": "/rpg-game/static/media/minotaur.21c08648e1491f8b37a8.png",
     "static/media/spears.png": "/rpg-game/static/media/spears.d3252be3403c1d2b7057.png",
     "static/media/honor.png": "/rpg-game/static/media/honor.54505bdcab1f40a0a87d.png",
+    "static/media/hat.png": "/rpg-game/static/media/hat.ada5512e54440e489b80.png",
     "static/media/chest.png": "/rpg-game/static/media/chest.f70a3d6217053d67acd6.png",
     "static/media/gold.png": "/rpg-game/static/media/gold.49c94ddb5409d06bd03c.png",
     "static/media/skeleton.png": "/rpg-game/static/media/skeleton.9291a008c9c60d936ac4.png",
     "static/media/spear.png": "/rpg-game/static/media/spear.a5fc51f1afd5ce945b68.png",
     "static/media/potion.png": "/rpg-game/static/media/potion.bb9ee3578d540f81166b.png",
     "index.html": "/rpg-game/index.html",
-    "main.c1e87ddc.css.map": "/rpg-game/static/css/main.c1e87ddc.css.map",
-    "main.2a62897c.js.map": "/rpg-game/static/js/main.2a62897c.js.map"
+    "main.c692a555.css.map": "/rpg-game/static/css/main.c692a555.css.map",
+    "main.a9858dda.js.map": "/rpg-game/static/js/main.a9858dda.js.map"
   },
   "entrypoints": [
-    "static/css/main.c1e87ddc.css",
-    "static/js/main.2a62897c.js"
+    "static/css/main.c692a555.css",
+    "static/js/main.a9858dda.js"
   ]
 }
