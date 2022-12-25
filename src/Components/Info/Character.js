@@ -19,7 +19,7 @@ export let heroList = [
     name: "Маг",
     img: magic,
     exp: 0,
-    level: 1,
+    level: 3,
     damage: 1,
     armour: 1,
     gold: 0,

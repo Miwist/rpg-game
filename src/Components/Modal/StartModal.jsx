@@ -46,7 +46,7 @@ const StartModal = () => {
     if (userName.length >= 3 && userName !== null) {
       heroList[0].userName = userName;
       localStorage.setItem("Hero", JSON.stringify(heroList[0]));
-
+      
       closeModal();
     } else {
       alert("Введите корректное имя");
