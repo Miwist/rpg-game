@@ -15,7 +15,7 @@ const BattleTrain = ({ setTrain }) => {
   const [final, setFinal] = useState(false);
   const [gameover, setGameover] = useState(false);
   const [move, setMove] = useState(0);
-  
+
   let monster = monsterList[monsterCount];
   let heroHP = hero.healthPoint - damageMonster;
   let monsterHP = monster.healthPoint - damage;

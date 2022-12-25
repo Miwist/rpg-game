@@ -87,9 +87,9 @@ $fiol: #40374a;
   }
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 480px) {
   .inventory {
-    max-width: 375px;
+    max-width: 100%;
     overflow: hidden;
   }
 }

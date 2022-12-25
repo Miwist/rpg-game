@@ -41,10 +41,10 @@
   background-color: #042453;
 }
 
-@media screen and (max-width: 390px) {
-    .Menu {
-        max-width: 375px;
-    }
+@media screen and (max-width: 480px) {
+  .Menu {
+    max-width: 100%;
+  }
   .Menu_box {
     margin-left: 0;
   }

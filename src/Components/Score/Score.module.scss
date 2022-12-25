@@ -112,13 +112,14 @@
 
 @media screen and (max-width: 480px) {
   .score {
-    width: 375px;
+    max-width: 100%;
     height: 100%;
     overflow: hidden;
     .score_box {
       display: flex;
       flex-direction: column;
-      padding: 20px;
+      align-items: center;
+      padding: 25px;
       margin-bottom: 10px;
       .score_boxItem {
         max-width: 120px;
@@ -126,7 +127,7 @@
     }
   }
   .inventory {
-    max-width: 375px;
+    max-width: 100%;
     overflow: hidden;
   }
 }
