@@ -1,7 +1,4 @@
-$myblue: #64d0c4;
-$bluegray: #2c6b7d;
-$darkblue: #042453;
-$fiol: #40374a;
+@import "../../Style/Variabless";
 
 .score {
   position: absolute;
@@ -113,7 +110,21 @@ $fiol: #40374a;
   }
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 480px) {
+  .score {
+    width: 375px;
+    height: 100%;
+    overflow: hidden;
+    .score_box {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      margin-bottom: 10px;
+      .score_boxItem {
+        max-width: 120px;
+      }
+    }
+  }
   .inventory {
     max-width: 375px;
     overflow: hidden;

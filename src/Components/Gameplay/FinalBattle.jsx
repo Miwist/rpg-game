@@ -14,7 +14,7 @@ const FinalBattle = ({ setTrain }) => {
     hero.healthPoint = hero.healthPoint + 10;
     hero.exp = 0;
     localStorage.setItem("Hero", JSON.stringify(hero));
-  }
+  } 
 
   return (
     <div className={cl.FinalBattle}>

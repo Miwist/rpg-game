@@ -11,7 +11,7 @@ const BattleTrain = ({ setTrain }) => {
   const [attack, setAttack] = useState(false);
   const [attackMonster, setAttackMonster] = useState(false);
   const [damage, setDamage] = useState(0);
-  const [damageMonster, setDamageMonster] = useState(100);
+  const [damageMonster, setDamageMonster] = useState(0);
   const [final, setFinal] = useState(false);
   const [gameover, setGameover] = useState(false);
   const [move, setMove] = useState(0);

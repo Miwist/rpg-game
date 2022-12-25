@@ -27,6 +27,7 @@ const Inventory = ({ setOpenInventory }) => {
           <div className={cl.inventory_boxItem}>
             <img src={item.img} alt={item.name} />
             <h4>{item.name}</h4>
+            <p>{item.description}</p>
           </div>
         ))}
       </div>

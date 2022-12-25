@@ -8,6 +8,7 @@ import AboutGame from "../Info/AboutGame";
 import Inventory from "../Inventory/Inventory";
 import ChangeLevel from "./ChangeLevel";
 import Score from "../Score/Score";
+import Box from "../Box/Box";
 
 const Menu = () => {
   const [infocharacter, setInfocharacter] = useState(false);
@@ -17,21 +18,23 @@ const Menu = () => {
   const [openScore, setOpenScore] = useState(false);
   const [openInventory, setOpenInventory] = useState(false);
   const [change, setChange] = useState(false);
+  const [openBox, setOpenBox] = useState(false);
 
   function changeHero() {
     localStorage.clear();
     window.location.reload();
   }
 
-
   return (
     <div className={cl.Menu}>
       <div className={cl.Menu_box}>
         <span onClick={() => setChange(true)}>Начать тренировку</span>
         <span onClick={() => setBoss(true)}>Сразиться с боссом</span>
+
         <span onClick={() => setOpenScore(true)}>Магазин</span>
         <span onClick={() => setInfocharacter(true)}>Персонаж</span>
         <span onClick={() => setOpenInventory(true)}>Инвентарь</span>
+        <span onClick={() => setOpenBox(true)}>Открыть сундук</span>
         <span onClick={() => setAbout(true)}>Об игре</span>
         <span onClick={changeHero}>Сменить персонажа</span>
       </div>
@@ -45,6 +48,7 @@ const Menu = () => {
       {openInventory && <Inventory setOpenInventory={setOpenInventory} />}
       {change && <ChangeLevel setTrain={setTrain} setChange={setChange} />}
       {openScore && <Score setOpenScore={setOpenScore} />}
+      {openBox && <Box setOpenBox={setOpenBox} />}
     </div>
   );
 };

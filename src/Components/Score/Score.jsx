@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import cl from "./Score.module.scss";
 import gold from "../../img/gold.png";
 import { useState } from "react";
@@ -6,19 +6,29 @@ import { itemsAll } from "./Items";
 const Score = ({ setOpenScore }) => {
   const [buy, setBuy] = useState(false);
   const [noMoney, setNoMoney] = useState(false);
+  const [count, setCount] = useState(0);
 
   let hero = JSON.parse(localStorage.getItem("Hero"));
+  let score = JSON.parse(localStorage.getItem("score"));
   let goldHero = hero.gold;
   const [itemId, setItemId] = useState(0);
   let inventory = JSON.parse(localStorage.getItem("inventory"));
 
+  let itemForIndex = score.filter((t) => t.id === itemId);
+  let index = score.indexOf(itemForIndex[0]);
+
+  useEffect(() => {
+    score = JSON.parse(localStorage.getItem("score"));
+  }, [count]);
+
   function buyItem() {
-    if (hero.gold >= itemsAll[itemId].price) {
-      hero.gold = hero.gold - itemsAll[itemId].price;
-      inventory.push(itemsAll[itemId]);
+    if (hero.gold >= score[index].price) {
+      hero.gold = hero.gold - score[index].price;
+    
+      inventory.push(score[index]);
+    
       if (itemId === 1) {
-        hero.healthPoint = hero.healthPoint + 200;
-        hero.itemHp = "200"
+        hero.healthPoint = hero.healthPoint + 600;
       }
       if (itemId === 2) {
         hero.spell = "firewall";
@@ -29,8 +39,10 @@ const Score = ({ setOpenScore }) => {
 
       localStorage.setItem("inventory", JSON.stringify(inventory));
       localStorage.setItem("Hero", JSON.stringify(hero));
-      delete itemsAll[itemId];
-      localStorage.setItem("score", JSON.stringify(itemsAll));
+
+      score.splice(index, 1);
+      localStorage.setItem("score", JSON.stringify(score));
+      setCount(count + 1);
       setBuy(false);
     } else {
       setBuy(false);
@@ -50,7 +62,7 @@ const Score = ({ setOpenScore }) => {
       </div>
 
       <div className={cl.score_box}>
-        {itemsAll.map((item) => (
+        {score.map((item) => (
           <div onClick={() => setItemId(item.id)}>
             <div className={cl.score_boxItem} onClick={() => setBuy(true)}>
               <h4>{item.name}</h4>

@@ -8,7 +8,7 @@ const BattleBoss = ({ setBoss }) => {
   let heroCount = JSON.parse(localStorage.getItem("heroCount"));
 
   let hero = JSON.parse(localStorage.getItem("Hero"));
-
+  const [move, setMove] = useState(0);
   const [attack, setAttack] = useState(false);
   const [attackMonster, setAttackMonster] = useState(false);
   const [damage, setDamage] = useState(0);
@@ -16,7 +16,7 @@ const BattleBoss = ({ setBoss }) => {
   const [final, setFinal] = useState(false);
   const [gameover, setGameover] = useState(false);
 
-  let heroHP = hero.healthPoint- damageMonster;
+  let heroHP = hero.healthPoint - damageMonster;
   let monsterHP = bossList[0].healthPoint - damage;
   let width = 120;
 
@@ -33,8 +33,10 @@ const BattleBoss = ({ setBoss }) => {
   function attackShow() {
     setAttackMonster(true);
     setTimeout(noAttack, 500);
+    setMove(move - 50);
     End();
     function noAttack() {
+      setMove(0);
       setAttackMonster(false);
     }
   }
@@ -59,14 +61,12 @@ const BattleBoss = ({ setBoss }) => {
     localStorage.setItem("Hero", JSON.stringify(hero));
   }
 
-
   function End() {
     if (heroHP <= 0) {
       setGameover(true);
     } else if (monsterHP <= 0) {
       setFinal(true);
       monsterHP = 0;
-
     }
   }
 
@@ -79,7 +79,7 @@ const BattleBoss = ({ setBoss }) => {
       )}
       <div className={cl.battlePlace} onClick={heroAttack}>
         <div className={cl.hero}>
-        <h3 style={{ marginBottom: "5px" }}>{hero.level} lvl</h3>
+          <h3 style={{ marginBottom: "5px" }}>{hero.level} lvl</h3>
           {attackMonster ? (
             <p style={{ color: "red", opacity: "1", marginBottom: "10px" }}>
               -{bossList[0].damage}
@@ -100,15 +100,14 @@ const BattleBoss = ({ setBoss }) => {
             </div>
           </div>
           <div className={cl.heroIcon}>
-            <img
-              className={cl.heroImg}
-              src={hero.img}
-              alt={hero.name}
-            />
+            <img className={cl.heroImg} src={hero.img} alt={hero.name} />
           </div>
         </div>
 
-        <div className={cl.monster}>
+        <div
+          className={cl.monster}
+          style={{ transform: `translateX(${move}%` }}
+        >
           <h3 style={{ color: "red" }}>{bossList[0].name}</h3>
           {attack ? (
             <p style={{ color: "white", opacity: "1", marginBottom: "10" }}>
@@ -133,10 +132,7 @@ const BattleBoss = ({ setBoss }) => {
         </div>
       </div>
       <div className={cl.skills} onClick={heroAttack}>
-        <img
-          src={hero.weapon}
-          alt={heroList.weapon}
-        />
+        <img src={hero.weapon} alt={heroList.weapon} />
       </div>
       <h3>Атаковать</h3>
       {final && <FinalBattle setBoss={setBoss} />}

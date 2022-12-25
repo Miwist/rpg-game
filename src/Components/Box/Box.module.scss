@@ -1,0 +1,43 @@
+@import "../../Style/Variabless";
+
+.Box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 15;
+  width: 500px;
+  height: 400px;
+  background: rgb(254, 242, 188);
+  border-radius: 15px;
+  text-align: center;
+
+  h2 {
+    color: #2c6b7d;
+    margin-bottom: 20px;
+  }
+  img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  .buttons {
+    display: flex;
+    flex-direction: column;
+  }
+}
+button {
+  padding: 10px;
+  width: 100px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: $darkblue;
+  color: $myblue;
+  margin-bottom: 10px;
+}
+button:hover {
+  background-color: $myblue;
+  color: $darkblue;
+}

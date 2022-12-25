@@ -20,7 +20,7 @@ export let heroList = [
     level: 1,
     damage: 3,
     armour: 1,
-    gold: 111110,
+    gold: 0,
     healthPoint: 120,
     manaPoint: 180,
     luck: 1,
