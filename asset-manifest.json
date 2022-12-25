@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/rpg-game/static/css/main.ba7fb102.css",
-    "main.js": "/rpg-game/static/js/main.27e7efdb.js",
+    "main.js": "/rpg-game/static/js/main.a75ac244.js",
     "static/media/openChest.jpg": "/rpg-game/static/media/openChest.d98bc155aed859896630.jpg",
     "static/media/castle.jpg": "/rpg-game/static/media/castle.4d81eed848299b15b163.jpg",
     "static/media/dragon.png": "/rpg-game/static/media/dragon.9f5fb76abd9a102d887f.png",
@@ -13,6 +13,7 @@
     "static/media/swords.png": "/rpg-game/static/media/swords.2e147197a21065ce8830.png",
     "static/media/mutant.png": "/rpg-game/static/media/mutant.ec21ac56c612f6765e2c.png",
     "static/media/wand.png": "/rpg-game/static/media/wand.151282a5b8361ca6d393.png",
+    "static/media/skin3.png": "/rpg-game/static/media/skin3.8b824d42abf0c57acfce.png",
     "static/media/fireball.png": "/rpg-game/static/media/fireball.be7e96fb87e95ad5dbe0.png",
     "static/media/morgen.png": "/rpg-game/static/media/morgen.725bdc8364e7317477c7.png",
     "static/media/boar.png": "/rpg-game/static/media/boar.52fa54258485d468cad9.png",
@@ -24,6 +25,7 @@
     "static/media/minotaur.png": "/rpg-game/static/media/minotaur.21c08648e1491f8b37a8.png",
     "static/media/spears.png": "/rpg-game/static/media/spears.d3252be3403c1d2b7057.png",
     "static/media/honor.png": "/rpg-game/static/media/honor.54505bdcab1f40a0a87d.png",
+    "static/media/skin2.png": "/rpg-game/static/media/skin2.18c19c9e50ab41975b21.png",
     "static/media/hat.png": "/rpg-game/static/media/hat.ada5512e54440e489b80.png",
     "static/media/chest.png": "/rpg-game/static/media/chest.f70a3d6217053d67acd6.png",
     "static/media/gold.png": "/rpg-game/static/media/gold.49c94ddb5409d06bd03c.png",
@@ -32,10 +34,10 @@
     "static/media/potion.png": "/rpg-game/static/media/potion.bb9ee3578d540f81166b.png",
     "index.html": "/rpg-game/index.html",
     "main.ba7fb102.css.map": "/rpg-game/static/css/main.ba7fb102.css.map",
-    "main.27e7efdb.js.map": "/rpg-game/static/js/main.27e7efdb.js.map"
+    "main.a75ac244.js.map": "/rpg-game/static/js/main.a75ac244.js.map"
   },
   "entrypoints": [
     "static/css/main.ba7fb102.css",
-    "static/js/main.27e7efdb.js"
+    "static/js/main.a75ac244.js"
   ]
 }
