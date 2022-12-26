@@ -121,7 +121,7 @@ const BattleTrain = ({ setTrain }) => {
 
         <div
           className={cl.monster}
-          style={{ transform: `translateX(${move}%` }}
+          style={{ transform: `translateX(${move}%)` }}
         >
           <h3 style={{ marginBottom: "5px" }}>{monster.level} lvl</h3>
           <h3 style={{ color: "red" }}>{monster.name}</h3>

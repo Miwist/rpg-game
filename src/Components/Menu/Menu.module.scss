@@ -1,3 +1,5 @@
+@import "../../Style/Variabless";
+
 .Menu {
   display: flex;
   flex-direction: row;
@@ -6,34 +8,54 @@
   height: 100vh;
   background: url(../../img/castle.jpg) no-repeat;
   background-size: cover;
+
+  .Menu_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 300px;
+    margin-left: 230px;
+  }
 }
 
-.Menu_box {
+span {
+  font-size: 18px;
+  width: 200px;
+  padding: 10px;
+  background-color: #042453;
+  color: #25a0b0;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+span:hover {
+  opacity: 0.85;
+}
+span:active {
+  background-color: rgb(225, 225, 225);
+}
+
+.changeLevel {
+  width: 500px;
+  height: 700px;
+  position: absolute;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  width: 300px;
-  height: 300px;
-  margin-left: 230px;
-
-  span {
-    font-size: 18px;
-    width: 200px;
-    padding: 10px;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #042453;
-    color: #25a0b0;
-    border-radius: 10px;
-    text-align: center;
-    margin-bottom: 20px;
-    cursor: pointer;
-  }
-  span:hover {
-    opacity: 0.85;
-  }
-  span:active {
-    background-color: rgb(225, 225, 225);
+  align-items: center;
+  padding: 40px;
+  z-index: 2;
+  max-width: 100%;
+  max-height: 100%;
+  background-color: $bluegray;
+  border-radius: 10px;
+  text-align: center;
+  h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
   }
 }
 
@@ -48,5 +70,8 @@
   }
   .Menu_box {
     margin-left: 0;
+  }
+  .changeLevel {
+    max-height: 100%;
   }
 }

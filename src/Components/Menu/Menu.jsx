@@ -25,7 +25,6 @@ const Menu = () => {
   }
 
 
-
   return (
     <div className={cl.Menu}>
       <div className={cl.Menu_box}>

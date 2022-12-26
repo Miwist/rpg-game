@@ -1,6 +1,7 @@
 import magic from "../../img/magic.png";
 import honor from "../../img/honor.png";
 import warwomen from "../../img/woman.png";
+import princess from "../../img/princess.png";
 import boar from "../../img/monsters/boar.png";
 import troll from "../../img/monsters/troll.png";
 import fireball from "../../img/fireball.png";
@@ -13,6 +14,9 @@ import minotaur from "../../img/monsters/minotaur.png";
 import devil from "../../img/monsters/devil.png";
 import cthulchu from "../../img/monsters/cthulhu.png";
 import monstrik from "../../img/monsters/monster.png";
+import mage from "../../img/monsters/mage.png";
+import death from "../../img/monsters/death.png";
+import execut from "../../img/monsters/execut.png";
 
 export let heroList = [
   {
@@ -23,9 +27,9 @@ export let heroList = [
     damage: 3,
     armour: 1,
     gold: 0,
-    healthPoint: 120,
+    healthPoint: 90,
     weapon: fireball,
-    weaponName: "fireball",
+    weaponName: "Огненный шар",
   },
   {
     name: "Воин",
@@ -37,7 +41,7 @@ export let heroList = [
     armour: 3,
     healthPoint: 180,
     weapon: sword,
-    weaponName: "sword",
+    weaponName: "Меч",
   },
 
   {
@@ -48,9 +52,21 @@ export let heroList = [
     gold: 0,
     level: 1,
     armour: 2,
-    healthPoint: 150,
+    healthPoint: 130,
     weapon: spear,
-    weaponName: "spear",
+    weaponName: "Копьё",
+  },
+  {
+    name: "Принцесса",
+    img: princess,
+    exp: 50,
+    damage: 5,
+    gold: 1000,
+    level: 1,
+    armour: 2,
+    healthPoint: 250,
+    weapon: sword,
+    weaponName: "Меч",
   },
 ];
 
@@ -135,6 +151,16 @@ export let monsterList = [
     exp: 3800,
     gold: 1000,
   },
+  {
+    name: "Ze",
+    img: execut,
+    damage: 3250,
+    armour: 8,
+    level: 45,
+    healthPoint: 31250,
+    exp: 5800,
+    gold: 5000,
+  },
 ];
 export let bossList = [
   {
@@ -144,7 +170,27 @@ export let bossList = [
     armour: 20,
     level: 50,
     healthPoint: 552500,
+    exp: 10000,
+    gold: 10000,
+  },
+  {
+    name: "Смерть",
+    img: death,
+    damage: 15550,
+    armour: 20,
+    level: 60,
+    healthPoint: 992500,
     exp: 50000,
     gold: 50000,
+  },
+  {
+    name: "Альтерас",
+    img: mage,
+    damage: 95550,
+    armour: 20,
+    level: 100,
+    healthPoint: 5992500,
+    exp: 150000,
+    gold: 150000,
   },
 ];

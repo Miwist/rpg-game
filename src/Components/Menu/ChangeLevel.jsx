@@ -1,5 +1,5 @@
 import React from "react";
-import cl from "../Modal/StartModal.module.scss";
+import cl from "./Menu.module.scss";
 
 const ChangeLevel = ({ setTrain, setChange }) => {
 
@@ -40,6 +40,10 @@ const ChangeLevel = ({ setTrain, setChange }) => {
     localStorage.setItem("monsterCount", 7);
     start();
   }
+  function level45() {
+    localStorage.setItem("monsterCount", 8);
+    start();
+  }
 
   function start() {
     setTrain(true);
@@ -57,6 +61,7 @@ const ChangeLevel = ({ setTrain, setChange }) => {
       <span onClick={level30}>30 уровень</span>
       <span onClick={level35}>35 уровень</span>
       <span onClick={level40}>40 уровень</span>
+      <span onClick={level45}>45 уровень</span>
       <span onClick={() => setChange(false)}>Назад</span>
     </div>
   );

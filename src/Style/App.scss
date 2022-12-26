@@ -1,19 +1,25 @@
+@import "./Variabless.scss";
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-     font-family: 'Roboto', sans-serif;
-     overflow: hidden;
+  font-family: "Mellizan";
+  overflow: hidden;
 }
 
+h1,
+h2,
+h3,
+h4,
+p , span{
+  font-family: "Mellizan";
+}
 
-
-@media screen and (max-width: 390px) {
-    body {
-      
-        overflow-x: hidden;
-    }
+@media screen and (max-width: 480px) {
+  body {
+    overflow-x: hidden;
   }
+}

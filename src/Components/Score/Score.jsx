@@ -43,8 +43,8 @@ const Score = ({ setOpenScore }) => {
 
       if (itemId === 4) {
         hero.damage = hero.damage * 15;
-        hero.level = hero.level * 15;
-        hero.gold = hero.gold * 10;
+        hero.exp = hero.exp * 5;
+        hero.healthPoint = hero.healthPoint * 50;
       }
 
       if (itemId === 5) {
@@ -54,10 +54,22 @@ const Score = ({ setOpenScore }) => {
       if (itemId === 6) {
         hero.img = score[index].img;
       }
+      if (itemId === 7) {
+        hero.img = score[index].img;
+      }
+
+      if (itemId === 8) {
+        hero.damage = hero.damage * 5;
+        hero.healthPoint = hero.healthPoint + 5000;
+      }
+
+      if (itemId === 9) {
+        hero.damage = hero.damage * 10;
+        hero.healthPoint = hero.healthPoint + 15000;
+      }
 
       localStorage.setItem("inventory", JSON.stringify(inventory));
       localStorage.setItem("Hero", JSON.stringify(hero));
-
       score.splice(index, 1);
       localStorage.setItem("score", JSON.stringify(score));
       setCount(count + 1);

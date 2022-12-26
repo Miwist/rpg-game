@@ -114,19 +114,26 @@ h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 400px;
-  height: 400px;
+  width: 600px;
+  height: 500px;
   z-index: 3;
   background: rgb(254, 242, 188);
   border-radius: 15px;
+
   h2 {
     font-size: 26px;
     color: #042453;
     margin-bottom: 10px;
   }
   h3 {
+    font-size: 24px;
     color: #2c6b7d;
     margin-bottom: 10px;
+  }
+  p {
+   
+    font-size: 20px;
+    color: gray;
   }
 
   button {

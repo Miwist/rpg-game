@@ -17,6 +17,7 @@
   .title {
     h2 {
       color: $myblue;
+   
     }
     margin-bottom: 40px;
   }
@@ -32,6 +33,7 @@
       margin-bottom: 15px;
     }
     .description {
+  
       text-align: center;
       p {
         font-size: 18px;
@@ -45,10 +47,11 @@
       font-size: 22px;
       font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
         sans-serif;
-      margin-bottom: 5px;
+      margin-bottom: 10px;
     }
   }
   button {
+    margin: 5px;
     padding: 10px;
     width: 100px;
     border-radius: 10px;

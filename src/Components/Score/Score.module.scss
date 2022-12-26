@@ -45,7 +45,7 @@
   .score_box {
     display: grid;
     grid-template-columns: repeat(3, 2fr);
-    grid-template-rows: repeat(2, 250px);
+    grid-template-rows: repeat(4, 250px);
     align-items: center;
     max-height: 550px;
     overflow-y: auto;
@@ -70,13 +70,13 @@
         background: #40374a;
       }
       h4 {
-        font-size: 18px;
+        font-size: 20px;
         color: #64d0c4;
         margin-bottom: 10px;
       }
       p {
         color: white;
-        font-size: 14px;
+        font-size: 16px;
         margin-bottom: 10px;
       }
     }

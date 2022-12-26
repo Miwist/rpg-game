@@ -1,19 +1,41 @@
 import React from "react";
 import cl from "./BattleTrain.module.scss";
 import { bossList } from "../Info/Character";
+import { useState } from "react";
+import FinalBattle from "./FinalBattle";
 
 const BossFinal = ({ setBoss }) => {
   let hero = JSON.parse(localStorage.getItem("Hero"));
 
+  let id = JSON.parse(localStorage.getItem("boss"));
+  const [endGame, setEndGame] = useState(false);
 
+  function closeFinal() {
+    if (id <= 1) {
+      localStorage.setItem("boss", JSON.stringify(id + 1));
+      setBoss(false);
+    }
+    if (id == 2) {
+      setEndGame(true);
+    }
+  }
 
   return (
     <div className={cl.FinalBattle}>
+      {endGame && (
+        <div className={cl.FinalBattle}>
+          <h2>Вы прошли игру!</h2>
+          <p>Король блогадорит вас и предлагает остаться жить в этом королевстве</p>
+          <button type="button" onClick={() => setBoss(false)}>
+            закрыть
+          </button>
+        </div>
+      )}
       <h2>Бой завершён</h2>
       <h3>Ваша награда: </h3>
-      <p>Опыт: {bossList[0].exp} exp</p>
-      <p>Золото: {bossList[0].gold} gold</p>
-      <button type="button" onClick={() => setBoss(false)}>
+      <p>Опыт: {bossList[id].exp} exp</p>
+      <p>Золото: {bossList[id].gold} монет</p>
+      <button type="button" onClick={closeFinal}>
         закрыть
       </button>
     </div>

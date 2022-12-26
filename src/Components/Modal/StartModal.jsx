@@ -8,6 +8,7 @@ import { heroList } from "../Info/Character";
 const StartModal = () => {
   const [startmodal, setStartModal] = useState(true);
   const [userName, setUsername] = useState("");
+  const [start, setStart] = useState(true);
   let Hero = JSON.parse(localStorage.getItem("Hero"));
 
   let nameRef = useRef();
@@ -17,8 +18,16 @@ const StartModal = () => {
     if (name.length >= 3) {
       setUsername(name);
       nameRef.current.value = " ";
+      setStart(false)
     } else {
       alert("В имени меньше 3 символов");
+    }
+
+    if (name == "Таня") {
+      heroList[3].userName = userName;
+      localStorage.setItem("Hero", JSON.stringify(heroList[3]));
+      localStorage.setItem("inventory", JSON.stringify([]));
+      closeModal();
     }
   }
 
@@ -46,7 +55,7 @@ const StartModal = () => {
     if (userName.length >= 3 && userName !== null) {
       heroList[0].userName = userName;
       localStorage.setItem("Hero", JSON.stringify(heroList[0]));
-      
+
       closeModal();
     } else {
       alert("Введите корректное имя");
@@ -67,13 +76,29 @@ const StartModal = () => {
   if (startmodal === true && Hero === null)
     return (
       <div className={cl.StartModal}>
-        <div className={cl.title}>
-          <h2>Выберите класс</h2>
-          <input type="text" placeholder="Введите своё имя..." ref={nameRef} />
-          <button type="button" onClick={changeName}>
-            ок
-          </button>
-        </div>
+        {start && (
+          <div className={cl.StartModal}>
+            <h2>Приветствую тебя!</h2>
+            <p>
+              В наше королевство вторгся злой маг Альтерас и заколдовал всех.
+              Люди превратились в монстров. Я как король этих мест, прошу тебя о
+              помощи, обрети силу в здещних краях и победи мага!
+            </p>
+            <div className={cl.title}>
+              <h3>Как тебя зовут?</h3>
+              <input
+                type="text"
+                placeholder="Введите своё имя..."
+                ref={nameRef}
+              />
+              <button type="button" onClick={changeName}>
+                ок
+              </button>
+            </div>
+          </div>
+        )}
+
+        <h2>Выберите класс</h2>
         <div className={cl.heroes_box}>
           <div className={cl.heroes_item} onClick={Wizzard}>
             <img src={wand} alt="wand" />

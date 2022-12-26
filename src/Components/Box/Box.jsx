@@ -68,8 +68,9 @@ const Box = ({ setOpenBox }) => {
   return (
     <div className={cl.Box}>
       {open ? (
-        <div>
-          <h2>Ваш выигрыш: {win}</h2>
+        <div className={cl.header}>
+          <h2>Ваш выигрыш:</h2>
+          <h3>{win}</h3>
           <img src={chestOpen} alt="chest" />
         </div>
       ) : (

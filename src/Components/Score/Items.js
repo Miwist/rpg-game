@@ -5,6 +5,9 @@ import spellbook from "../../img/items/spellbook.png";
 import hat from "../../img/items/hat.png";
 import skin1 from "../../img/items/skin2.png";
 import skin2 from "../../img/items/skin3.png";
+import skin3 from "../../img/items/roman.png";
+import complect from "../../img/items/complect.png";
+import crown from "../../img/items/crown.png";
 
 export let itemsAll = [
   {
@@ -21,13 +24,13 @@ export let itemsAll = [
     img: armour,
     id: 1,
   },
-  // {
-  //   name: "Книга заклинаний",
-  //   description: "Даёт одно новое умение",
-  //   price: 11340,
-  //   img: spellbook,
-  //   id: 2,
-  // },
+  {
+    name: "Книга заклинаний",
+    description: "Даёт одно новое умение",
+    price: 51340,
+    img: spellbook,
+    id: 2,
+  },
   {
     name: "Магическая сфера",
     description: "увеличивает урон х2",
@@ -38,26 +41,47 @@ export let itemsAll = [
   {
     name: "Шапочка по скидке",
     description: "Делает вас буквально бессмертным и самым модным",
-    price: 99999,
+    price: 199999,
     img: hat,
     id: 4,
   },
   {
-    name: "Скин мага",
+    name: "Одеяния феи",
     description: "Украшение",
     price: 5000,
     img: skin1,
     id: 5,
   },
   {
-    name: "Скин 2",
+    name: "Одеяния мага",
     description: "Украшение",
     price: 5000,
     img: skin2,
     id: 6,
   },
+  {
+    name: "Латы рыцаря",
+    description: "Украшение",
+    price: 5000,
+    img: skin3,
+    id: 7,
+  },
+  {
+    name: "Комплект оружия",
+    description: "урон х5 и 5000 здоровья",
+    price: 100000,
+    img: complect,
+    id: 8,
+  },
+  {
+    name: "Корона",
+    description: "урон х10 и 15000 здоровья",
+    price: 1000000,
+    img: crown,
+    id: 9,
+  },
 ];
 let score = JSON.parse(localStorage.getItem("score"));
-  if (score === null) {
+if (score === null) {
   localStorage.setItem("score", JSON.stringify(itemsAll));
 }

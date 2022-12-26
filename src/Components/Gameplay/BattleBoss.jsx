@@ -5,9 +5,15 @@ import FinalBattle from "./BossFinal";
 import GameOver from "./GameOver";
 
 const BattleBoss = ({ setBoss }) => {
-  let heroCount = JSON.parse(localStorage.getItem("heroCount"));
-
   let hero = JSON.parse(localStorage.getItem("Hero"));
+  let id = JSON.parse(localStorage.getItem("boss"));
+
+  if (id === null || id === undefined) {
+    id = 0;
+    localStorage.setItem("boss", JSON.stringify(0));
+  }
+
+  let boss = bossList[id];
   const [move, setMove] = useState(0);
   const [attack, setAttack] = useState(false);
   const [attackMonster, setAttackMonster] = useState(false);
@@ -16,9 +22,12 @@ const BattleBoss = ({ setBoss }) => {
   const [final, setFinal] = useState(false);
   const [gameover, setGameover] = useState(false);
   const [critical, setCritical] = useState(0);
+  const [openRandom, setOpenRandom] = useState(false);
+  const [count, setCount] = useState(0);
+  const [text, setText] = useState(" ")
 
   let heroHP = hero.healthPoint - damageMonster;
-  let monsterHP = bossList[0].healthPoint - damage;
+  let monsterHP = boss.healthPoint - damage;
   let width = 120;
 
   function heroAttack() {
@@ -33,12 +42,12 @@ const BattleBoss = ({ setBoss }) => {
 
   function spellAttack() {
     setAttack(true);
-    setDamage(damage + hero.damage * 5);
+    setDamage(damage + hero.damage * 3);
     End();
     function noAttack() {
       setAttack(false);
     }
-    setTimeout(noAttack, 2000);
+    setTimeout(noAttack, 1000);
   }
 
   useEffect(() => {
@@ -56,7 +65,11 @@ const BattleBoss = ({ setBoss }) => {
 
     if (random > 5) {
       setCritical(true);
-      setDamageMonster(100 * random);
+      setDamageMonster(damageMonster * random);
+    }
+
+    if (random === 1) {
+      setOpenRandom(true);
     }
 
     setTimeout(noAttack, 500);
@@ -69,35 +82,50 @@ const BattleBoss = ({ setBoss }) => {
     }
   }
 
+  function bossMagic() {
+    let random = Math.floor(Math.random() * 3);
+    if (random === 1) {
+      setDamageMonster(damageMonster + damageMonster * 2)
+    }
+    if (random === 2) {
+      setDamage(damage + damage * 2)
+    }
+    
+    setTimeout(setOpenRandom(false), 3000)
+  }
+
   useEffect(() => {
     const interval = setInterval(() => {
       attackShow();
-      setDamageMonster(damageMonster + bossList[0].damage);
-    }, 2000);
+      setDamageMonster(damageMonster + boss.damage);
+    }, 1500);
 
     return () => {
       clearInterval(interval);
     };
   }, []);
 
-  if (hero.exp >= (99 * hero.level) * 2 && hero.exp !== 0 && hero !== null) {
+  if (hero.exp >= 99 * hero.level * 2 && hero.exp !== 0 && hero !== null) {
     hero.level = hero.level + Math.round(hero.exp / (99 * hero.level) / 2);
     hero.damage = hero.damage + 1 + hero.level;
-    hero.healthPoint =
-      hero.healthPoint + 30 * hero.level;
+    hero.healthPoint = hero.healthPoint + 30 * hero.level;
     hero.exp = 0;
     localStorage.setItem("Hero", JSON.stringify(hero));
   }
+
+ 
 
   function End() {
     if (heroHP <= 0 && monsterHP > 0) {
       setGameover(true);
     } else if (monsterHP <= 0) {
       monsterHP = 0;
-      hero.gold = hero.gold + bossList[0].gold;
-      hero.exp = hero.exp + bossList[0].exp;
+      hero.gold = hero.gold + boss.gold;
+      hero.exp = hero.exp + boss.exp;
+
       localStorage.setItem("Hero", JSON.stringify(hero));
       setFinal(true);
+    
     }
   }
 
@@ -106,7 +134,7 @@ const BattleBoss = ({ setBoss }) => {
       {attackMonster ? (
         <p style={{ color: "red", opacity: "1" }}>Вас бьют!</p>
       ) : (
-        <p style={{ opacity: "0" }}>Вас бьют!</p>
+        <p style={{ opacity: "0" }}></p>
       )}
       {critical && (
         <p style={{ color: "red" }}>
@@ -145,7 +173,7 @@ const BattleBoss = ({ setBoss }) => {
           className={cl.monster}
           style={{ transform: `translateX(${move}%` }}
         >
-          <h3 style={{ color: "red" }}>{bossList[0].name}</h3>
+          <h3 style={{ color: "red" }}>{boss.name}</h3>
           {attack ? (
             <p style={{ color: "white", opacity: "1", marginBottom: "10" }}>
               -{hero.damage}
@@ -158,14 +186,14 @@ const BattleBoss = ({ setBoss }) => {
               className={cl.inProgress}
               style={{
                 background: "red",
-                width: width - damage / (bossList[0].healthPoint / width),
+                width: width - damage / (boss.healthPoint / width),
                 height: "100%",
               }}
             >
-              {bossList[0].healthPoint - damage}
+              {boss.healthPoint - damage}
             </div>
           </div>
-          <img src={bossList[0].img} alt={hero.name} />
+          <img src={boss.img} alt={hero.name} />
         </div>
       </div>
       <h3>Атаковать</h3>
@@ -179,6 +207,14 @@ const BattleBoss = ({ setBoss }) => {
           </div>
         )}
       </div>
+      {openRandom && (
+        <div className={cl.FinalBattle}>
+          <h3>Босс использует магию, выбери что-то одно</h3>
+          <button onClick={bossMagic}>Неизвестно</button>
+          <button onClick={bossMagic}>Неизвестно</button>
+          <button onClick={bossMagic}>Неизвестно</button>
+        </div>
+      )}
       {final && <FinalBattle setBoss={setBoss} />}
       {gameover && <GameOver setTrain={setBoss} />}
     </div>
