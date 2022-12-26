@@ -83,23 +83,29 @@ h3 {
 }
 
 .skills {
-  border: 2px $fiol solid;
-  padding: 10px;
-  margin-bottom: 15px;
-  cursor: pointer;
-  img {
-    width: 60px;
-    height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  .skill {
+    margin: 5px;
+    border: 2px $fiol solid;
+    padding: 10px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    img {
+      width: 60px;
+      height: 60px;
+    }
   }
-}
+  .skill:hover {
+    border-color: #2c6b7d;
+    opacity: 0.8;
+  }
 
-.skills:hover {
-  border-color: #2c6b7d;
-  opacity: 0.8;
-}
-
-.skills:active {
-  opacity: 0.5;
+  .skill:active {
+    opacity: 0.5;
+  }
 }
 
 .FinalBattle {
@@ -143,13 +149,18 @@ h3 {
 
 @media screen and (max-width: 480px) {
   .battleArea {
-    max-width:  100%;
+    max-width: 100%;
     overflow: hidden;
     .battlePlace {
-    
       .monster {
         margin-left: 0;
       }
     }
+  }
+
+  .FinalBattle { 
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
   }
 }

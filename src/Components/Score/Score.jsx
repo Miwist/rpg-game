@@ -3,6 +3,8 @@ import cl from "./Score.module.scss";
 import gold from "../../img/gold.png";
 import { useState } from "react";
 import { itemsAll } from "./Items";
+import morgen from "../../img/morgen.png";
+
 const Score = ({ setOpenScore }) => {
   const [buy, setBuy] = useState(false);
   const [noMoney, setNoMoney] = useState(false);
@@ -30,10 +32,10 @@ const Score = ({ setOpenScore }) => {
         hero.healthPoint = hero.healthPoint + 250;
       }
       if (itemId === 1) {
-        hero.healthPoint = hero.healthPoint + 1600;
+        hero.healthPoint = hero.healthPoint + 600;
       }
       if (itemId === 2) {
-        hero.spell = "firewall";
+        hero.spell = morgen;
       }
       if (itemId === 3) {
         hero.damage = hero.damage * 2;
@@ -43,6 +45,14 @@ const Score = ({ setOpenScore }) => {
         hero.damage = hero.damage * 15;
         hero.level = hero.level * 15;
         hero.gold = hero.gold * 10;
+      }
+
+      if (itemId === 5) {
+        hero.img = score[index].img;
+      }
+
+      if (itemId === 6) {
+        hero.img = score[index].img;
       }
 
       localStorage.setItem("inventory", JSON.stringify(inventory));
@@ -81,6 +91,7 @@ const Score = ({ setOpenScore }) => {
           </div>
         ))}
       </div>
+
       {buy && (
         <div className={cl.modalScore}>
           <h2>Вы точно хотите купить предмет?</h2>

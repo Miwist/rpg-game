@@ -85,6 +85,10 @@
   .characterModal,
   .aboutModal {
     max-width: 100%;
+    img {
+      width: 100px;
+      height: 100px;
+    }
     .text {
       p {
         font-size: 18px;

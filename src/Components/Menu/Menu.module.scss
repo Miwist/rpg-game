@@ -43,7 +43,8 @@
 
 @media screen and (max-width: 480px) {
   .Menu {
-    max-width: 100%;
+    max-width: 100vh;
+    overflow: hidden;
   }
   .Menu_box {
     margin-left: 0;

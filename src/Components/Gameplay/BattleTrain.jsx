@@ -31,6 +31,16 @@ const BattleTrain = ({ setTrain }) => {
     setTimeout(noAttack, 100);
   }
 
+  function spellAttack() {
+    setAttack(true);
+    setDamage(damage + hero.damage * 5);
+    End();
+    function noAttack() {
+      setAttack(false);
+    }
+    setTimeout(noAttack, 2000);
+  }
+
   function attackShow() {
     setAttackMonster(true);
     setTimeout(noAttack, 500);
@@ -62,7 +72,7 @@ const BattleTrain = ({ setTrain }) => {
   }, [heroHP]);
 
   function End() {
-    if (heroHP <= 0) {
+    if (heroHP <= 0 && monsterHP > 0) {
       setGameover(true);
       heroHP = 0;
     } else if (monsterHP <= 0) {
@@ -83,8 +93,8 @@ const BattleTrain = ({ setTrain }) => {
       )}
       <div className={cl.battlePlace} onClick={heroAttack}>
         <div className={cl.hero}>
-          <h3 style={{color: "gray"}}>{hero.userName}</h3>
-          <h3 >{hero.level} lvl</h3>
+          <h3 style={{ color: "gray" }}>{hero.userName}</h3>
+          <h3>{hero.level} lvl</h3>
           {attackMonster ? (
             <p style={{ color: "red", opacity: "1", marginBottom: "10px" }}>
               -{monster.damage}
@@ -137,10 +147,18 @@ const BattleTrain = ({ setTrain }) => {
           <img src={monster.img} alt={monster.name} />
         </div>
       </div>
-      <div className={cl.skills} onClick={heroAttack}>
-        <img src={hero.weapon} alt={hero.weapon} />
-      </div>
       <h3>Атаковать</h3>
+      <div className={cl.skills}>
+        <div className={cl.skill} onClick={heroAttack}>
+          <img src={hero.weapon} alt={hero.weapon} />
+        </div>
+        {hero.spell && (
+          <div className={cl.skill} onClick={spellAttack}>
+            <img src={hero.spell} alt={hero.spell} />
+          </div>
+        )}
+      </div>
+
       {final && <FinalBattle setTrain={setTrain} />}
       {gameover && <GameOver setTrain={setTrain} />}
     </div>

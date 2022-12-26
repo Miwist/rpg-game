@@ -11,13 +11,13 @@ const FinalBattle = ({ setTrain }) => {
 
 
     if (
-      hero.exp >= (99 * hero.level) / 2 &&
+      hero.exp >= (99 * hero.level) * 2 &&
       hero.exp !== 0 &&
       hero !== null
     ) {
       hero.level = hero.level + Math.round(hero.exp / (99 * hero.level) / 2);
-      hero.damage = Math.round(hero.damage + hero.level);
-      hero.healthPoint = hero.healthPoint + 10 * Math.round(hero.exp / (99 * hero.level) / 2);
+      hero.damage = Math.round(hero.damage + (hero.level/2));
+      hero.healthPoint = hero.healthPoint + 10 + hero.level;
       hero.exp = 0;
       localStorage.setItem("Hero", JSON.stringify(hero));
     }

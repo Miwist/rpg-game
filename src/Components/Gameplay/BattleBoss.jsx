@@ -31,6 +31,16 @@ const BattleBoss = ({ setBoss }) => {
     setTimeout(noAttack, 100);
   }
 
+  function spellAttack() {
+    setAttack(true);
+    setDamage(damage + hero.damage * 5);
+    End();
+    function noAttack() {
+      setAttack(false);
+    }
+    setTimeout(noAttack, 2000);
+  }
+
   useEffect(() => {
     End();
   }, [monsterHP]);
@@ -70,17 +80,17 @@ const BattleBoss = ({ setBoss }) => {
     };
   }, []);
 
-  if (hero.exp >= (99 * hero.level) / 2 && hero.exp !== 0 && hero !== null) {
+  if (hero.exp >= (99 * hero.level) * 2 && hero.exp !== 0 && hero !== null) {
     hero.level = hero.level + Math.round(hero.exp / (99 * hero.level) / 2);
-    hero.damage = hero.damage + Math.round(hero.exp / (99 * hero.level) / 2);
+    hero.damage = hero.damage + 1 + hero.level;
     hero.healthPoint =
-      hero.healthPoint + 30 * Math.round(hero.exp / (99 * hero.level) / 2);
+      hero.healthPoint + 30 * hero.level;
     hero.exp = 0;
     localStorage.setItem("Hero", JSON.stringify(hero));
   }
 
   function End() {
-    if (heroHP <= 0) {
+    if (heroHP <= 0 && monsterHP > 0) {
       setGameover(true);
     } else if (monsterHP <= 0) {
       monsterHP = 0;
@@ -105,7 +115,7 @@ const BattleBoss = ({ setBoss }) => {
       )}
       <div className={cl.battlePlace} onClick={heroAttack}>
         <div className={cl.hero}>
-        <h3 style={{color: "gray"}}>{hero.userName}</h3>
+          <h3 style={{ color: "gray" }}>{hero.userName}</h3>
           <h3>{hero.level} lvl</h3>
           {attackMonster ? (
             <p style={{ color: "red", opacity: "1", marginBottom: "10px" }}>
@@ -158,10 +168,17 @@ const BattleBoss = ({ setBoss }) => {
           <img src={bossList[0].img} alt={hero.name} />
         </div>
       </div>
-      <div className={cl.skills} onClick={heroAttack}>
-        <img src={hero.weapon} alt={heroList.weapon} />
-      </div>
       <h3>Атаковать</h3>
+      <div className={cl.skills}>
+        <div className={cl.skill} onClick={heroAttack}>
+          <img src={hero.weapon} alt={hero.weapon} />
+        </div>
+        {hero.spell && (
+          <div className={cl.skill} onClick={spellAttack}>
+            <img src={hero.spell} alt={hero.spell} />
+          </div>
+        )}
+      </div>
       {final && <FinalBattle setBoss={setBoss} />}
       {gameover && <GameOver setTrain={setBoss} />}
     </div>

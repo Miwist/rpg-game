@@ -16,8 +16,6 @@ const Infohero = ({ setInfocharacter }) => {
           <p>Урон: {hero.damage}</p>
           <p>Броня: {hero.armour}</p>
           <p>Здоровье: {hero.healthPoint}</p>
-          <p>Мана: {hero.manaPoint}</p>
-          <p>Удача: {hero.luck}</p>
           <p>
             Золото: <i style={{ color: "gold" }}>{hero.gold}</i>
           </p>

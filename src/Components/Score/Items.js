@@ -3,6 +3,8 @@ import armour from "../../img/items/armour.png";
 import crystallBall from "../../img/items/crystallball.png";
 import spellbook from "../../img/items/spellbook.png";
 import hat from "../../img/items/hat.png";
+import skin1 from "../../img/items/skin2.png";
+import skin2 from "../../img/items/skin3.png";
 
 export let itemsAll = [
   {
@@ -14,18 +16,18 @@ export let itemsAll = [
   },
   {
     name: "Броня",
-    description: "Прибавляет + 1600 здоровья",
+    description: "Прибавляет + 600 здоровья",
     price: 6450,
     img: armour,
     id: 1,
   },
-  {
-    name: "Книга заклинаний",
-    description: "Даёт одно новое умение",
-    price: 11340,
-    img: spellbook,
-    id: 2,
-  },
+  // {
+  //   name: "Книга заклинаний",
+  //   description: "Даёт одно новое умение",
+  //   price: 11340,
+  //   img: spellbook,
+  //   id: 2,
+  // },
   {
     name: "Магическая сфера",
     description: "увеличивает урон х2",
@@ -39,7 +41,23 @@ export let itemsAll = [
     price: 99999,
     img: hat,
     id: 4,
-  }
+  },
+  {
+    name: "Скин мага",
+    description: "Украшение",
+    price: 5000,
+    img: skin1,
+    id: 5,
+  },
+  {
+    name: "Скин 2",
+    description: "Украшение",
+    price: 5000,
+    img: skin2,
+    id: 6,
+  },
 ];
-
-localStorage.setItem("score", JSON.stringify(itemsAll));
+let score = JSON.parse(localStorage.getItem("score"));
+  if (score === null) {
+  localStorage.setItem("score", JSON.stringify(itemsAll));
+}
