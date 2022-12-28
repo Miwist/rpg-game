@@ -10,6 +10,7 @@ import ChangeLevel from "./ChangeLevel";
 import Score from "../Score/Score";
 import Box from "../Box/Box";
 
+
 const Menu = () => {
   const [infocharacter, setInfocharacter] = useState(false);
   const [train, setTrain] = useState(false);
@@ -19,15 +20,17 @@ const Menu = () => {
   const [openInventory, setOpenInventory] = useState(false);
   const [change, setChange] = useState(false);
   const [openBox, setOpenBox] = useState(false);
+
+
   function changeHero() {
     localStorage.clear();
     window.location.reload();
   }
 
-
   return (
-    <div className={cl.Menu}>
-      <div className={cl.Menu_box}>
+    <div
+      className={cl.Menu} >
+      <div className={cl.Menu_box} >
         <span onClick={() => setChange(true)}>Начать тренировку</span>
         <span onClick={() => setBoss(true)}>Сразиться с боссом</span>
 
@@ -36,7 +39,7 @@ const Menu = () => {
         <span onClick={() => setOpenInventory(true)}>Инвентарь</span>
         <span onClick={() => setOpenBox(true)}>Открыть сундук</span>
         <span onClick={() => setAbout(true)}>Об игре</span>
-        <span onClick={changeHero}>Сменить персонажа</span>
+        <span onClick={changeHero}>Начать заново</span>
       </div>
       <StartModal />
       {infocharacter === true && (

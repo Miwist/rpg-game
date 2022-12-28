@@ -34,7 +34,7 @@
     color: gold;
     font-size: 24px;
     padding: 5px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
   }
   .gold_item {
     width: 20px;
@@ -57,7 +57,7 @@
       padding: 5px;
       max-height: 150px;
       text-align: center;
- 
+
       img {
         width: 100px;
         height: 100px;
@@ -119,6 +119,7 @@
     max-width: 100%;
     height: 100%;
     overflow: hidden;
+    border-radius: 1px;
     .score_box {
       display: flex;
       flex-direction: column;

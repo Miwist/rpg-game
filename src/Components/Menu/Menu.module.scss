@@ -67,11 +67,16 @@ span:active {
   .Menu {
     max-width: 100vh;
     overflow: hidden;
+    .Menu_box {
+      margin-left: 0;
+    }
   }
-  .Menu_box {
-    margin-left: 0;
-  }
+ 
+
   .changeLevel {
     max-height: 100%;
+    span {
+      padding: 5px;
+    }
   }
 }

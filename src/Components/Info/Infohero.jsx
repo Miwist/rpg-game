@@ -14,7 +14,9 @@ const Infohero = ({ setInfocharacter }) => {
           <p>Уровень: {hero.level}</p>
           <p>Опыт: {hero.exp} exp</p>
           <p>Урон: {hero.damage}</p>
-          <p>Броня: {hero.armour}</p>
+          <p>
+            Убитых мобов: <b style={{ color: "red" }}> {hero.kills}</b>
+          </p>
           <p>Здоровье: {hero.healthPoint}</p>
           <p>
             Золото: <i style={{ color: "gold" }}>{hero.gold}</i>

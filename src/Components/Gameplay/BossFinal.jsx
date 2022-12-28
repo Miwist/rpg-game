@@ -2,11 +2,9 @@ import React from "react";
 import cl from "./BattleTrain.module.scss";
 import { bossList } from "../Info/Character";
 import { useState } from "react";
-import FinalBattle from "./FinalBattle";
+
 
 const BossFinal = ({ setBoss }) => {
-  let hero = JSON.parse(localStorage.getItem("Hero"));
-
   let id = JSON.parse(localStorage.getItem("boss"));
   const [endGame, setEndGame] = useState(false);
 
@@ -20,13 +18,19 @@ const BossFinal = ({ setBoss }) => {
     }
   }
 
+  function storyEnd() {
+    setBoss(false);
+  }
+
   return (
     <div className={cl.FinalBattle}>
       {endGame && (
         <div className={cl.FinalBattle}>
           <h2>Вы прошли игру!</h2>
-          <p>Король блогадорит вас и предлагает остаться жить в этом королевстве</p>
-          <button type="button" onClick={() => setBoss(false)}>
+          <p>
+            Король блогадорит вас и предлагает остаться жить в этом королевстве
+          </p>
+          <button type="button" onClick={storyEnd}>
             закрыть
           </button>
         </div>

@@ -39,14 +39,14 @@ const Box = ({ setOpenBox }) => {
         hero.gold = hero.gold + 500;
         setWin("Поздравляем, вы выиграли 500 монет!");
       } else if (random === 9) {
-        hero.damage = hero.damage * 1.5;
-        setWin("Поздравляем, вы выиграли двойной урон!");
+        hero.damage = hero.damage + 30;
+        setWin("Поздравляем, вы выиграли + 30 урона!");
       } else if (random === 4) {
         hero.exp = hero.exp + 500;
         setWin("Поздравляем, Вы выиграли 500 exp!");
       } else if (random === 5) {
-        hero.exp = hero.exp + 100;
-        setWin("Поздравляем, вы выиграли 100 exp!");
+        hero.healthPoint = hero.healthPoint + 100;
+        setWin("Поздравляем, вы выиграли 100 HP!");
       } else if (random === 7) {
         hero.gold = hero.gold + 1500;
         setWin("Поздравляем, вы выиграли 1500 монет!");
@@ -55,7 +55,7 @@ const Box = ({ setOpenBox }) => {
         hero.gold = hero.gold + 1500;
         setWin("Поздравляем, вы выиграли 1000 exp и 1500 монет!");
       } else {
-        setWin("Ничего");
+        setWin("Попробуйте ещё раз");
       }
 
       localStorage.setItem("Hero", JSON.stringify(hero));
@@ -92,7 +92,7 @@ const Box = ({ setOpenBox }) => {
         <button onClick={() => setOpen(false)}>Назад</button>
       ) : (
         <div className={cl.buttons}>
-          <button onClick={bounty} >Открыть</button>
+          <button onClick={bounty}>Открыть</button>
           <button onClick={() => setOpenBox(false)}>Назад</button>
         </div>
       )}

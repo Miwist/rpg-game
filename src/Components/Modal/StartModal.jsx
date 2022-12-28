@@ -4,13 +4,13 @@ import wand from "../../img/wand.png";
 import swords from "../../img/swords.png";
 import spears from "../../img/spears.png";
 import { heroList } from "../Info/Character";
+import castleEvil from "../../img/castle.jpg";
 
 const StartModal = () => {
   const [startmodal, setStartModal] = useState(true);
   const [userName, setUsername] = useState("");
   const [start, setStart] = useState(true);
   let Hero = JSON.parse(localStorage.getItem("Hero"));
-
   let nameRef = useRef();
 
   function changeName() {
@@ -18,7 +18,7 @@ const StartModal = () => {
     if (name.length >= 3) {
       setUsername(name);
       nameRef.current.value = " ";
-      setStart(false)
+      setStart(false);
     } else {
       alert("В имени меньше 3 символов");
     }
@@ -27,6 +27,14 @@ const StartModal = () => {
       heroList[3].userName = userName;
       localStorage.setItem("Hero", JSON.stringify(heroList[3]));
       localStorage.setItem("inventory", JSON.stringify([]));
+      closeModal();
+    }
+
+    if (name == "Test") {
+      heroList[4].userName = userName;
+      localStorage.setItem("Hero", JSON.stringify(heroList[4]));
+      localStorage.setItem("inventory", JSON.stringify([]));
+   
       closeModal();
     }
   }

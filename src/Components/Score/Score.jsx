@@ -38,13 +38,12 @@ const Score = ({ setOpenScore }) => {
         hero.spell = morgen;
       }
       if (itemId === 3) {
-        hero.damage = hero.damage * 2;
+        hero.damage = hero.damage + 20;
       }
 
       if (itemId === 4) {
-        hero.damage = hero.damage * 15;
         hero.exp = hero.exp * 5;
-        hero.healthPoint = hero.healthPoint * 50;
+        hero.healthPoint = hero.healthPoint + 500;
       }
 
       if (itemId === 5) {
@@ -59,12 +58,12 @@ const Score = ({ setOpenScore }) => {
       }
 
       if (itemId === 8) {
-        hero.damage = hero.damage * 5;
+        hero.damage = hero.damage + 500;
         hero.healthPoint = hero.healthPoint + 5000;
       }
 
       if (itemId === 9) {
-        hero.damage = hero.damage * 10;
+        hero.damage = hero.damage + 1000;
         hero.healthPoint = hero.healthPoint + 15000;
       }
 
