@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/rpg-game/static/css/main.b3b86e4e.css",
+    "main.css": "/rpg-game/static/css/main.ef24fb3a.css",
     "main.js": "/rpg-game/static/js/main.f05b6f37.js",
     "static/media/openChest.jpg": "/rpg-game/static/media/openChest.d98bc155aed859896630.jpg",
     "static/media/castle.jpg": "/rpg-game/static/media/castle.4d81eed848299b15b163.jpg",
@@ -42,11 +42,11 @@
     "static/media/mage.png": "/rpg-game/static/media/mage.dc6d5d22a7452136cd23.png",
     "static/media/potion.png": "/rpg-game/static/media/potion.bb9ee3578d540f81166b.png",
     "index.html": "/rpg-game/index.html",
-    "main.b3b86e4e.css.map": "/rpg-game/static/css/main.b3b86e4e.css.map",
+    "main.ef24fb3a.css.map": "/rpg-game/static/css/main.ef24fb3a.css.map",
     "main.f05b6f37.js.map": "/rpg-game/static/js/main.f05b6f37.js.map"
   },
   "entrypoints": [
-    "static/css/main.b3b86e4e.css",
+    "static/css/main.ef24fb3a.css",
     "static/js/main.f05b6f37.js"
   ]
 }
