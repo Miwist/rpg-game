@@ -39,8 +39,9 @@ span:active {
 }
 
 .changeLevel {
-  width: 500px;
-  height: 700px;
+  width: 600px;
+  max-height: 650px;
+  overflow-y: auto;
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -58,14 +59,23 @@ span:active {
     margin-bottom: 10px;
   }
 }
+.changeLevel::-webkit-scrollbar {
+  border-radius: 5px;
+  background-color: #042453;
+}
 
+.changeLevel::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #5d4474;
+}
 .icon {
   background-color: #042453;
 }
 
 @media screen and (max-width: 480px) {
   .Menu {
-    max-width: 100vh;
+    max-width: 100%;
+    max-height: 100%;
     overflow: hidden;
     .Menu_box {
       margin-left: 0;

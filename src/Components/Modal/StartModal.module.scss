@@ -1,8 +1,8 @@
 @import "../../Style/Variabless";
 
 .StartModal {
-  min-width: 600px;
-  min-height: 600px;
+  width: 600px;
+  height: 600px;
 }
 
 .StartModal {
@@ -66,7 +66,10 @@
       margin: 10px;
       border-radius: 10px;
       padding: 15px;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
       img {
         width: 100px;
@@ -87,18 +90,18 @@
 }
 
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 480px) {
   .StartModal {
-    max-width: 370px;
-    max-height: 300px;
-    min-width: 370px;
+ 
+ 
+    width: 100%;
     height: 100%;
     .heroes_box {
       .heroes_item {
-        min-width: 110px;
+        min-width:120px;
         margin: 5px;
         h3 {
-          font-size: 18px;
+          font-size: 17px;
         }
         img {
           width: 60px;
